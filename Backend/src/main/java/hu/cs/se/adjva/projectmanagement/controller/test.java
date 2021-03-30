@@ -7,6 +7,6 @@ public class test {
     
     @GetMapping("/test")
     public String testing(){
-        return "Testing done";
+        return "Testing Successfully done";
     }
 }
