@@ -1,13 +1,13 @@
-package hu.cs.se.adjva.projectmanagement;
+// package hu.cs.se.adjva.projectmanagement;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class ProjectManagementApplicationTests {
+// @SpringBootTest
+// class ProjectManagementApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }

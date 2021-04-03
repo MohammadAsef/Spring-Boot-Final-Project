@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Produect
  */
 @Entity
- @Table(name = "Products")
- @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+@Table(name = "Products")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class Product {
 
     @Id
@@ -32,14 +32,15 @@ public class Product {
 
     public Product(Integer id, String product_name, Integer product_code, String product_description, Double price,
             Double product_buy_price, Double product_sale_price) {
-        
+
                 this.id = id;
-        this.product_name = product_name;
-        this.product_code = product_code;
-        this.product_description = product_description;
-        this.price = price;
-        this.product_buy_price = product_buy_price;
-        this.product_sale_price = product_sale_price;
+                this.product_name = product_name;
+                this.product_code = product_code;
+                this.product_description = product_description;
+                this.price = price;
+                this.product_buy_price = product_buy_price;
+                this.product_sale_price = product_sale_price;
+                
     }
 
     public Integer getId() {
@@ -84,9 +85,4 @@ public class Product {
     public void setProduct_sale_price(Double product_sale_price) {
         this.product_sale_price = product_sale_price;
     }
-    
-
-    
-
-    
 }
