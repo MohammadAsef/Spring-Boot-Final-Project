@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import hu.cs.se.adjva.projectmanagement.Repository.ProductRepository;
 import hu.cs.se.adjva.projectmanagement.model.Product;
 
-/**
- * ProductServiceImp
- */
 @Service
 public class ProductServiceImp implements ProdectServices{
 
