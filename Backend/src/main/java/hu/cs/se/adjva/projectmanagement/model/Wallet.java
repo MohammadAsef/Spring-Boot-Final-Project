@@ -1,13 +1,10 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
 import javax.persistence.*;
-
 @Entity
-
 @Table(name = "wallet")
 public class Wallet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+  
     private String id;
     private String mount;
 
@@ -24,7 +21,8 @@ public class Wallet {
         this.customer = customer;
     }
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public String getId() {
         return id;
     }

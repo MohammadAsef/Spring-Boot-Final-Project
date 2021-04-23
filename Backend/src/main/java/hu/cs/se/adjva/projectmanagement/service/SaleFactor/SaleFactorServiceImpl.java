@@ -11,9 +11,29 @@ public class SaleFactorServiceImpl implements SaleFactorService {
     private SaleFactorRepository saleFactorRepository;
 
     @Override
-    public List<SaleFactor> getAllBuyFactor() {
+    public List<SaleFactor> getAllSaleFactor() {
         // TODO Auto-generated method stub
         return saleFactorRepository.findAll();
     }
-  
+
+    @Override
+    public SaleFactor getSaleFactorById(Integer id) {
+        // TODO Auto-generated method stub
+        return saleFactorRepository.getOne(id);
+    }
+
+    @Override
+    public SaleFactor addSaleFactor(SaleFactor saleFactor) {
+        // TODO Auto-generated method stub
+        return saleFactorRepository.save(saleFactor);
+    }
+
+    @Override
+    public void deleteSaleFactor(Integer id) {
+        // TODO Auto-generated method stub
+        saleFactorRepository.deleteById(id);
+    }
+
+   
+    
 }

@@ -8,15 +8,15 @@ import javax.persistence.*;
 public class Customer {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   
     private int id;
 
     private String name;
     private String email;
     private String phone;
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
