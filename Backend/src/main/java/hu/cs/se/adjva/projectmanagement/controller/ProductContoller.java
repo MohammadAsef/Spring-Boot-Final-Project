@@ -32,13 +32,13 @@ public class ProductContoller {
    public ResponseEntity<List<Product>> getProducts(){
 
       List<Product> products = productServices.getAllProducts();
-      return new ResponseEntity(products, HttpStatus.OK);
+      return new ResponseEntity<>(products, HttpStatus.OK);
    }
 
    @PostMapping("/product/add")
    public ResponseEntity<Product> addProduct(@RequestBody Product product){
       Product saveProduct = productServices.addProduct(product);
-      return new ResponseEntity(saveProduct , HttpStatus.CREATED) ;
+      return new ResponseEntity<>(saveProduct , HttpStatus.CREATED) ;
    }
 
    @GetMapping("/product/{id}")
