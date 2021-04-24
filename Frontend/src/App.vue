@@ -1,78 +1,40 @@
 <template>
-  <div id="app">
-    <div v-if="authenticated">
-      <Header @authenticated="setAuthenticated" />
-      <navbar />
-      <div class="view-container">
-        <router-view @authenticated="setAuthenticated" />
-      </div>
-    </div>
-
-    <div v-if="!authenticated">
-      <div class="view-container1">
-        <router-view @authenticated="setAuthenticated" />
-      </div>
-    </div>
+  <div :class="{'nav-open': $sidebar.showSidebar}">
+    <notifications></notifications>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import navbar from "@/components/navbar.vue";
-import Header from "@/components/Header.vue";
-
-export default {
-  name: "App",
-  components: {
-    navbar,
-    Header
-  },
-
-  data() {
-    return {
-      authenticated: false,
-      mockAccount: {
-        username: "rezaazimi22",
-        password: "skillful"
-      }
-    };
-  },
-  mounted() {
-    if (!this.authenticated) {
-      this.$router.replace({ name: "login" });
-    }
-  },
-  methods: {
-    setAuthenticated(status) {
-      this.authenticated = status;
-    },
-    logout() {
-      this.authenticated = false;
-    }
-  }
-};
+export default {};
 </script>
 
-<style>
-.view-container {
-  padding: 1.5em;
-  width: 100vw;
-  box-sizing: border-box;
-  height: 100vh;
-  background: url("d.jpg");
-}
+<style lang="scss">
+.vue-notifyjs.notifications {
+  .alert {
+    z-index: 10000;
+  }
+  .list-move {
+    transition: transform 0.3s, opacity 0.4s;
+  }
+  .list-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .list-enter-active {
+    transition: transform 0.2s ease-in, opacity 0.4s ease-in;
+  }
+  .list-leave-active {
+    transition: transform 1s ease-out, opacity 0.4s ease-out;
+  }
 
-.view-container1 {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: white;
-  font-size: 12px;
-  background: url("a.jpg");
-  background-position: center;
-  box-sizing: border-box;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  .list-enter {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  .list-leave-to {
+    opacity: 0;
+    transform: scale(1.2, 0.7);
+  }
 }
 </style>
