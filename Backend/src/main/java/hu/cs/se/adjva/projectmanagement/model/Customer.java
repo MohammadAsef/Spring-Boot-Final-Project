@@ -2,6 +2,7 @@ package hu.cs.se.adjva.projectmanagement.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -16,6 +17,16 @@ public class Customer {
     private String email;
     private String phone;
 
+    @OneToMany(mappedBy = "customer")
+    private Set<BuyFactor> buyFactors;
+
+    public Set<BuyFactor> getBuyFactors() {
+        return buyFactors;
+    }
+
+    public void setBuyFactors(Set<BuyFactor> buyFactors) {
+        this.buyFactors = buyFactors;
+    }
 
     public int getId() {
         return id;
