@@ -22,7 +22,6 @@ import hu.cs.se.adjva.projectmanagement.service.product.ProdectServices;
 @RestController
 public class ProductContoller {
 
-	//git test
 
    @Autowired
    private ProdectServices productServices;
