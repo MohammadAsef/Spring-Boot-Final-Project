@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.cs.se.adjva.projectmanagement.model.Product;
-import hu.cs.se.adjva.projectmanagement.service.ProdectServices;
+import hu.cs.se.adjva.projectmanagement.service.product.ProdectServices;
 
 /**
  * ProductContoller

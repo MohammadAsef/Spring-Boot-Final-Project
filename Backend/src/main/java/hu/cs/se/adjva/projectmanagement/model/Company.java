@@ -1,6 +1,8 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Company
@@ -15,6 +17,8 @@ public class Company {
 
 
     
+    @Id
+    @GeneratedValue
     public Integer getCompany_id() {
         return company_id;
     }

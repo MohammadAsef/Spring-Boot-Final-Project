@@ -1,4 +1,4 @@
-package hu.cs.se.adjva.projectmanagement.service;
+package hu.cs.se.adjva.projectmanagement.service.product;
 
 import java.util.List;
 
