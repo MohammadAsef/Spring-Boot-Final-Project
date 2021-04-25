@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <form>
-      <h1>محل ورود</h1>
+      <h1>Log in</h1>
       <div class="inset">
         <p>
           <label></label>
@@ -85,7 +85,7 @@ form:after {
   height: 1px;
   width: 100px;
   left: 20%;
-  background: linear-gradient(left, #111, #444, #b6b6b8, #444, #111);
+  background: linear-gradient(right, #111, #444, #b6b6b8, #444, #111);
   top: 0;
 }
 
@@ -147,6 +147,7 @@ input[type="text"] {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
   border-radius: 0.3em;
   margin-bottom: 20px;
+  display: block;
 }
 
 input[type="password"] {

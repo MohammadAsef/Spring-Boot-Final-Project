@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjectManagementApplication<project-management>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "hu.cs.se.adjva.projectmanagement.ProjectManagementApplication",
+            "projectName": "project-management",
+            "args": ""
+        }
+    ]
+}

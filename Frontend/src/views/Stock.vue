@@ -1,10 +1,68 @@
 <template>
-  <div class="card6"><h1>Stock</h1></div>
+  <div class="card6">
+    <h1>لیست گدام های موجود</h1>
+    <table>
+      <tr>
+        <th>شهر</th>
+        <th>ناحیه</th>
+        <th>پلاک</th>
+        <th>صاحب</th>
+        <th>کرایه</th>
+        <th>مساحت</th>
+        <th>تغییرات</th>
+      </tr>
+      <tr v-for="stock in stocks" :key="stock.id">
+            <td>{{ stock.city }}</td>
+            <td>{{ stock.district }}</td>
+            <td>{{ stock.no }}</td>
+            <td>{{ stock.owner }}</td>
+            <td>{{ stock.rent }}</td>
+            <td>{{ stock.area }}</td>
+
+            <td>
+              <button >Edit </button>
+              <button>  Delete  </button>
+            </td>
+      </tr>
+ 
+    </table>
+  </div>
 </template>
 
+
 <script>
-export default {};
+import stockService from "../api/stockService";
+export default {
+  data() {
+    return {
+      stocks: [],
+    };
+  },
+
+  methods: {
+    async deleteStock(stockId) {
+      const conf = confirm("Do you really want to delete the entity ?");
+      if (conf) {
+        const response = await stockService.deleteStockById(stockId);
+        console.log(response.data);
+        this.stocks = this.stocks.filter(stock => {
+          return stock.id !== stockId;
+        });
+      }
+    }
+  },
+
+  async mounted() {
+    const response = await stockService.getAllStocks();
+    this.stocks = response.data;
+  }
+};
 </script>
+
+
+
+
+
 
 <style>
 .card6 {
@@ -104,5 +162,25 @@ export default {};
 }
 .card h1 {
   text-align: center;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 40px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  /* border-left: 1px solid rgb(255, 4, 4); */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
 }
 </style>

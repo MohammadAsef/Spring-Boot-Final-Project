@@ -28,8 +28,11 @@
           >گذارش</router-link
         >
 
-        <router-link to="/stock" class="link6" @click.native="addActiveClass6"
-          >سهام</router-link
+        <router-link to="/stock/all" class="link6" @click.native="addActiveClass6"
+          > لیست گدام ها </router-link
+        >
+        <router-link to="/stock/add" class="link8" @click.native="addActiveClass8"
+          >  اضافه کردن گدام </router-link
         >
 
         <router-link
@@ -112,6 +115,18 @@ export default {
       document.querySelector(".link5").classList.remove("active");
       document.querySelector(".link6").classList.remove("active");
       document.querySelector(".link2").classList.remove("active");
+    },
+
+      addActiveClass8() {
+      document.querySelector(".link8").classList.add("active");
+      document.querySelector(".link1").classList.remove("active");
+      document.querySelector(".link3").classList.remove("active");
+      document.querySelector(".link4").classList.remove("active");
+      document.querySelector(".link5").classList.remove("active");
+      document.querySelector(".link6").classList.remove("active");
+      document.querySelector(".link2").classList.remove("active");
+      document.querySelector(".link7").classList.remove("active");
+
     }
   }
 };
@@ -170,9 +185,9 @@ export default {
 
 .nav a.active {
   background: red;
-  width: 91.7%;
+  /* width: 91.7%; */
   /* margin-right: 4.4vw; */
-  border-radius: 0px 15px 15px 0px;
+  /* border-radius: 0px 15px 15px 0px; */
   /* border: 2px solid red; */
 }
 </style>

@@ -136,7 +136,7 @@ export default {
   width: 75vw;
   height: 81vh;
   margin-top: 13.5vh;
-  border-radius: 10px 0px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
   border: 1px solid red;
   /* border-right: 18px solid red; */
   background: rgb(0, 0, 0, 0.5);

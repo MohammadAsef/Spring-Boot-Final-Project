@@ -8,6 +8,8 @@ import Stock from "../views/Stock.vue";
 import MoneySavings from "../views/MoneySavings.vue";
 import Settings from "../views/Settings.vue";
 import LoginComponent from "../views/logInForm.vue";
+import registerComponent from "../views/register.vue";
+import AddStock from "../views/AddStock.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -21,6 +23,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginComponent
+  },
+  {
+    path: "/user/register",
+    name: "register",
+    component: registerComponent
   },
   {
     path: "/buy",
@@ -43,9 +50,14 @@ const routes = [
     component: Report
   },
   {
-    path: "/stock",
+    path: "/stock/all",
     name: "Stock",
     component: Stock
+  },
+  {
+    path: "/stock/add",
+    name: "addStock",
+    component: AddStock
   },
   {
     path: "/settings",

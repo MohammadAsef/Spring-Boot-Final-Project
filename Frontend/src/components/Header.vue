@@ -19,19 +19,21 @@
         </div>
       </div>
       <div style="width:60%; " class="buttons dropdown">
-        <button
-          class="dropbtn"
-          @click="SignOut"
-          style="width:100%;  border-radius: 10px 0px 0px 0px;   border: rgba(255, 255, 255, 0.349) 1px solid;
- height:50%"
-        >
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </div>
-          SignOut
-        </button>
+ 
+     <button class="dropdown-button dropbtn" @click="myFunction()" 
+      style="width:100%; border-radius: 10px 0px 0px 0px;   border: rgba(255, 255, 255, 0.349) 1px solid;
+ height:50%"> 
+ <i style="position:absolute; left: 130px; top:13px" class="fa fa-caret-down"></i> UserName
+      <div >
+       <div id="myDropdown" class="dropdown-content">
+          <a @click="register">Register</a>
+          <a @click="SignOut">Logout</a>
+        </div>
+      </div>
+
+     </button>
+        
+     
         <button
           style="width:100%; border-radius: 0px 0px 0px 10px;   border: rgba(255, 255, 255, 0.349) 1px solid;
  height:50%"
@@ -42,24 +44,13 @@
     </div>
     <div class="middle">
       <!-- <input type="text" placeholder="جستجو ......" /> -->
-      <h1 class="head">Inventory MS</h1>
+      <h1 class="head">سیستم مدیریت گدام های برادران عزیزی</h1>
     </div>
   </div>
 </template>
 
 <script>
-window.onclick = function(event) {
-  if (!event.target.matches(".dropbtn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
+
 export default {
   name: "BasicImageInput",
   data: function() {
@@ -72,6 +63,10 @@ export default {
     SignOut() {
       this.$emit("authenticated", false);
       this.$router.replace({ name: "login" });
+    },
+    register(){
+      this.$emit("register", false);
+      this.$router.replace({ name: "register" });
     },
     chooseImage() {
       this.$refs.fileInput.click();
@@ -89,12 +84,15 @@ export default {
       }
     },
 
-    myFunction() {
-      document
-        .getElementsByClassName("dropdown-content")
-        .classList.toggle("show");
-    }
+      myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+}
+  },
+
+  created:{
+
   }
+  
 };
 </script>
 
@@ -105,7 +103,7 @@ export default {
 }
 .header {
   padding: 4px;
-  background: rgb(2, 1, 17);
+  /* background: rgb(2, 1, 17); */
   color: white;
   width: 100vw;
   font-family: Gandome;
@@ -124,6 +122,17 @@ export default {
   /* position: relative; */
   display: flex;
   margin-right: 3vw;
+  margin-top: 1vh;
+}
+
+.middle {
+  width: 17vw;
+  background: rgb(2, 1, 17);
+  border-radius: 15px;
+  border: rgba(255, 255, 255, 0.349) 1px solid;
+  /* position: relative; */
+  display: flex;
+  margin-right: 2.2vw;
   margin-top: 1vh;
 }
 
@@ -202,28 +211,22 @@ button:hover {
 button:focus {
   outline: none;
 }
-
-.dropbtn {
-  padding: 5px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 10px 10px rgba(255, 255, 255, 0.1);
-  border-radius: 0.3em;
-  background: #0184ff;
+/* .dropbtn {
+  background-color: #3498DB;
   color: white;
-  float: right;
-  font-weight: bold;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
   cursor: pointer;
-  font-size: 13px;
-}
+} */
 
-.dropbtn:hover,
-.dropbtn:focus {
-  background-color: #2980b9;
-}
+/* .dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+} */
 
-.dropdown {
+.dropdown-button {
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
@@ -231,8 +234,9 @@ button:focus {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
+  top:47px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -243,11 +247,7 @@ button:focus {
   display: block;
 }
 
-.dropdown a:hover {
-  background-color: #ddd;
-}
+.dropdown a:hover {background-color: #ddd;}
 
-.show {
-  display: block;
-}
+.show {display: block;}
 </style>

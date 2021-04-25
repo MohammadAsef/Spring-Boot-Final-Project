@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <div v-if="authenticated">
+
+    
+
+    <div v-if="authenticated == true && register == true">
       <Header @authenticated="setAuthenticated" />
       <navbar />
       <div class="view-container">
-        <router-view @authenticated="setAuthenticated" />
+        <router-view @authenticated="setAuthenticated"  @register="setRegister"/>
       </div>
     </div>
 
     <div v-if="!authenticated">
       <div class="view-container1">
         <router-view @authenticated="setAuthenticated" />
-      </div>
+        </div>
     </div>
+
+        <div v-if="!register">
+      <div class="view-container1">
+        <router-view @register="setRegister" />
+        
+</div>
+    </div>
+
+   
+
   </div>
 </template>
 
@@ -30,6 +43,7 @@ export default {
   data() {
     return {
       authenticated: false,
+      register: true,
       mockAccount: {
         username: "rezaazimi22",
         password: "skillful"
@@ -45,6 +59,9 @@ export default {
     setAuthenticated(status) {
       this.authenticated = status;
     },
+     setRegister(status) {
+      this.register = status;
+    },
     logout() {
       this.authenticated = false;
     }
@@ -58,7 +75,8 @@ export default {
   width: 100vw;
   box-sizing: border-box;
   height: 100vh;
-  background: url("d.jpg");
+  /* background: url("d.jpg"); */
+  background-color: rgb(19, 19, 68);
 }
 
 .view-container1 {
@@ -66,7 +84,7 @@ export default {
     Helvetica, Arial, "Lucida Grande", sans-serif;
   color: white;
   font-size: 12px;
-  background: url("a.jpg");
+  background-color: rgb(11, 11, 51);
   background-position: center;
   box-sizing: border-box;
   height: 100vh;

@@ -58,7 +58,7 @@ export default {
   width: 75vw;
   height: 80.7vh;
   margin-top: 13.4vh;
-  border-radius: 10px 10px 0px 10px;
+  border-radius: 10px 10px 10px 10px;
   border: 1px solid red;
   /* border-right: 18px solid red; */
   background: rgb(0, 0, 0, 0.5);
