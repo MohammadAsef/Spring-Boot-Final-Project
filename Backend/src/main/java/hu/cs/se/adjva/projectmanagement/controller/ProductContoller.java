@@ -26,7 +26,11 @@ public class ProductContoller {
    @Autowired
    private ProdectServices productServices;
 
+   @GetMapping("/")
+   public String home(){
 
+      return "Home Page";
+   }
    
    @GetMapping("/product/all")
    public ResponseEntity<List<Product>> getProducts(){
