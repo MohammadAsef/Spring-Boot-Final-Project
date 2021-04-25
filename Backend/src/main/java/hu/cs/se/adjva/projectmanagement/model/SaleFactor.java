@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -13,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class SaleFactor {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer buyFactorId;
     private Integer factorCode;
     private String saleDate;
@@ -22,6 +21,9 @@ public class SaleFactor {
     private Integer discount;
     private Integer totalPrice;
     private Integer status;
+
+    private Stock stock;
+    private Customer customer;
 
     
     public SaleFactor() {
@@ -40,6 +42,8 @@ public class SaleFactor {
     }
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getBuyFactorId() {
         return buyFactorId;
     }
@@ -107,6 +111,28 @@ public class SaleFactor {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+
+    @OneToOne
+    public Stock getStock() {
+        return stock;
+    }
+
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
+
+    @OneToOne
+    public Customer getCustomer() {
+        return customer;
+    }
+
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     

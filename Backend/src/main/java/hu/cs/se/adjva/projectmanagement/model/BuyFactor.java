@@ -27,6 +27,7 @@ public class BuyFactor {
     private Integer status;
 
     private Stock stockId;
+    private Customer customer;
 
     public BuyFactor() {
     }
@@ -40,6 +41,15 @@ public class BuyFactor {
         this.currentPayment = currentPayment;
         this.totalPayment = totalPayment;
         this.status = status;
+    }
+
+    @OneToOne
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @OneToOne

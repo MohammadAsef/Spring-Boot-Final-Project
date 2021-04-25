@@ -7,16 +7,15 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class Customer {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String name;
     private String email;
     private String phone;
 
+    private Wallet wallet;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -50,8 +49,6 @@ public class Customer {
     }
 
     @OneToOne(mappedBy = "customer")
-    private Wallet wallet;
-
     public Wallet getWallet() {
         return wallet;
     }

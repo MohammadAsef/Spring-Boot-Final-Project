@@ -6,16 +6,15 @@ import javax.persistence.*;
 
 @Table(name = "wallet")
 public class Wallet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     private String id;
     private String mount;
 
 
-   @OneToOne
+  
     private Customer customer;
 
-
+    @OneToOne
     public Customer getCustomer() {
         return customer;
     }
@@ -24,7 +23,8 @@ public class Wallet {
         this.customer = customer;
     }
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public String getId() {
         return id;
     }
