@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "BuyFactor")
+@Table(name = "SaleFactor")
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class SaleFactor {
     
