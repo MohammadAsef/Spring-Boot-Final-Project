@@ -3,18 +3,21 @@ package hu.cs.se.adjva.projectmanagement.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * SaleProduct
  */
 @Entity
 @Table(name = "sale_product")
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class SaleProduct{
 
     private  Integer sale_id;
     private  Integer sale_factor_id;
-    private  Integer product_id;
     private  Double  buy_price;
     private  Double  sale_price;
     private  Double  package_price;
@@ -23,6 +26,15 @@ public class SaleProduct{
     private Integer  quantity;
     private String   sale_date;
 
+    private Product product;
+
+    @OneToOne
+    public Product getProduct() {
+        return product;
+    }
+    public void setProduct(Product product) {
+        this.product = product;
+    }
     @Id
     @GeneratedValue
     public Integer getSale_id() {
@@ -36,12 +48,6 @@ public class SaleProduct{
     }
     public void setSale_factor_id(Integer sale_factor_id) {
         this.sale_factor_id = sale_factor_id;
-    }
-    public Integer getProduct_id() {
-        return product_id;
-    }
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
     }
     public Double getBuy_price() {
         return buy_price;

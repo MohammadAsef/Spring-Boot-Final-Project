@@ -26,7 +26,19 @@ public class Product {
     private Double product_sale_price;
 
     private ProductStore productStore;
+    private SaleProduct saleProduct;
 
+    
+    @OneToOne(mappedBy = "product")
+    public SaleProduct getSaleProduct() {
+        return saleProduct;
+    }
+
+    public void setSaleProduct(SaleProduct saleProduct) {
+        this.saleProduct = saleProduct;
+    }
+
+    // mapping with productStore 
     @OneToOne(mappedBy = "product")
     public ProductStore getProductStore() {
         return productStore;
