@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import hu.cs.se.adjva.projectmanagement.model.Stock;
 
 @Repository
-public interface StockRepository extends JpaRepository<Stock, Integer> {
+public interface StockRepository extends JpaRepository<Stock , Integer> {
     
 }

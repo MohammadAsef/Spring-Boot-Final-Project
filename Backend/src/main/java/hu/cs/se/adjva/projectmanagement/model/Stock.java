@@ -13,8 +13,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class Stock {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer stockId;
     private String stockName;
     private String stockAddress;
@@ -30,6 +28,8 @@ public class Stock {
         this.status = status;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getStockId() {
         return stockId;
     }
