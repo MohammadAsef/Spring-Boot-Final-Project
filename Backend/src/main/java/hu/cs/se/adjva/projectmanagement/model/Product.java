@@ -27,8 +27,19 @@ public class Product {
 
     private ProductStore productStore;
     private SaleProduct saleProduct;
+    private BuyProduct buyProduct;
 
-    
+    // mapping with BuyProduct
+    @OneToOne(mappedBy = "product")
+    public BuyProduct getBuyProduct() {
+        return buyProduct;
+    }
+
+    public void setBuyProduct(BuyProduct buyProduct) {
+        this.buyProduct = buyProduct;
+    }
+
+    // mapping with SaleProduct
     @OneToOne(mappedBy = "product")
     public SaleProduct getSaleProduct() {
         return saleProduct;

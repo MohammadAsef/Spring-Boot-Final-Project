@@ -4,24 +4,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * BuyProduct
  */
 @Entity
 @Table(name = "buy_product")
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BuyProduct {
 
     private Integer buy_product_id;
     private Integer buy_factor_id;
-    private Integer product_id;
     private Double  buy_price;
     private Double  sale_price;
     private Double  quantity;
 
-
-
+    private Product product;
+    
+    @OneToOne
+    public Product getProduct() {
+        return product;
+    }
+    public void setProduct(Product product) {
+        this.product = product;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getBuy_product_id() {
@@ -36,12 +46,7 @@ public class BuyProduct {
     public void setBuy_factor_id(Integer buy_factor_id) {
         this.buy_factor_id = buy_factor_id;
     }
-    public Integer getProduct_id() {
-        return product_id;
-    }
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
-    }
+    
     public Double getBuy_price() {
         return buy_price;
     }
