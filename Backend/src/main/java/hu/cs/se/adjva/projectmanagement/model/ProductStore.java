@@ -19,7 +19,7 @@ public class ProductStore {
     private Double  qualitity;
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getProduct_store_id() {
         return product_store_id;
     }

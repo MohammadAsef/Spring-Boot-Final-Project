@@ -1,6 +1,8 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -8,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "sale_product")
-public class SaleProduct {
+public class SaleProduct{
 
     private  Integer sale_id;
     private  Integer sale_factor_id;
@@ -21,7 +23,8 @@ public class SaleProduct {
     private Integer  quantity;
     private String   sale_date;
 
-    
+    @Id
+    @GeneratedValue
     public Integer getSale_id() {
         return sale_id;
     }
@@ -83,15 +86,7 @@ public class SaleProduct {
         this.sale_date = sale_date;
     }
 
-    
-
-
 
     
-    
-    
 
-
-
-    
 }
