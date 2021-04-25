@@ -85,9 +85,4 @@ public class Product {
     public void setProduct_sale_price(Double product_sale_price) {
         this.product_sale_price = product_sale_price;
     }
-    
-
-    
-
-    
 }
