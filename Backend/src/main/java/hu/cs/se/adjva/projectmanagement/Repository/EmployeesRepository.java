@@ -1,13 +1,15 @@
 package hu.cs.se.adjva.projectmanagement.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import hu.cs.se.adjva.projectmanagement.model.Employee;
 
 /**
- * EmployeeRespository
+ * EmployeesRepository
  */
-public interface EmployeeRespository extends JpaRepository<Employee, Integer> {
+@Repository
+public interface EmployeesRepository extends JpaRepository<Employee,Integer> {
 
     
 }

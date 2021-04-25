@@ -1,11 +1,13 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  * Employee
  */
+@Entity
 public class Employee {
 
     private Integer employee_id;
@@ -24,7 +26,7 @@ public class Employee {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     public Integer getEmployee_id() {
         return employee_id;
     }
