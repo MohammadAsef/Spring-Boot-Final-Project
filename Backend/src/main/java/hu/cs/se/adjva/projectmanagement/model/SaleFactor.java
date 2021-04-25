@@ -8,92 +8,106 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
-/* 
-   Buy Factor
-*/
 @Entity
 @Table(name = "BuyFactor")
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
-public class BuyFactor {
-
+public class SaleFactor {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer buyFactorId;
     private Integer factorCode;
-    private String buyDate;
+    private String saleDate;
+    private Integer receptionPrice;
     private Integer discount;
-    private Integer currentPayment;
-    private Integer totalPayment;
+    private Integer totalPrice;
     private Integer status;
 
-    public BuyFactor() {
+    
+    public SaleFactor() {
     }
 
-    public BuyFactor(Integer buyFactorId, Integer factorCode, String buyDate,
-            Integer discount, Integer currentPayment, Integer totalPayment, Integer status) {
+
+    public SaleFactor(Integer buyFactorId, Integer factorCode, String saleDate, Integer receptionPrice,
+            Integer discount, Integer totalPrice, Integer status) {
         this.buyFactorId = buyFactorId;
         this.factorCode = factorCode;
-        this.buyDate = buyDate;
+        this.saleDate = saleDate;
+        this.receptionPrice = receptionPrice;
         this.discount = discount;
-        this.currentPayment = currentPayment;
-        this.totalPayment = totalPayment;
+        this.totalPrice = totalPrice;
         this.status = status;
     }
+
 
     public Integer getBuyFactorId() {
         return buyFactorId;
     }
 
+
     public void setBuyFactorId(Integer buyFactorId) {
         this.buyFactorId = buyFactorId;
     }
+
 
     public Integer getFactorCode() {
         return factorCode;
     }
 
+
     public void setFactorCode(Integer factorCode) {
         this.factorCode = factorCode;
     }
 
-    public String getBuyDate() {
-        return buyDate;
+
+    public String getSaleDate() {
+        return saleDate;
     }
 
-    public void setBuyDate(String buyDate) {
-        this.buyDate = buyDate;
+
+    public void setSaleDate(String saleDate) {
+        this.saleDate = saleDate;
     }
+
+
+    public Integer getReceptionPrice() {
+        return receptionPrice;
+    }
+
+
+    public void setReceptionPrice(Integer receptionPrice) {
+        this.receptionPrice = receptionPrice;
+    }
+
 
     public Integer getDiscount() {
         return discount;
     }
 
+
     public void setDiscount(Integer discount) {
         this.discount = discount;
     }
 
-    public Integer getCurrentPayment() {
-        return currentPayment;
+
+    public Integer getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setCurrentPayment(Integer currentPayment) {
-        this.currentPayment = currentPayment;
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public Integer getTotalPayment() {
-        return totalPayment;
-    }
-
-    public void setTotalPayment(Integer totalPayment) {
-        this.totalPayment = totalPayment;
-    }
 
     public Integer getStatus() {
         return status;
     }
 
+
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    
 }
