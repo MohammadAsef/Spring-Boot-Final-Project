@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,6 +30,15 @@ public class BuyFactor {
     private Stock stockId;
     private Customer customer;
 
+    @ManyToOne
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public BuyFactor() {
     }
 
@@ -43,14 +53,7 @@ public class BuyFactor {
         this.status = status;
     }
 
-    @OneToOne
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+   
 
     @OneToOne
     public Stock getStock() {
