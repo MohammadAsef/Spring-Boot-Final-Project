@@ -2,8 +2,10 @@ package hu.cs.se.adjva.projectmanagement.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import hu.cs.se.adjva.projectmanagement.DTO.BuyProductDTO;
 import hu.cs.se.adjva.projectmanagement.model.BuyProduct;
 import hu.cs.se.adjva.projectmanagement.service.buyProduct.BuyProductServices;
+import hu.cs.se.adjva.projectmanagement.service.product.ProdectServices;
 
 import java.util.List;
 
@@ -25,25 +27,34 @@ public class BuyProductController {
    private BuyProductServices buyProductServices;
 
 
+   @Autowired 
+   private ProdectServices productService;
+
+
+   
+
+
    
    @GetMapping("/buyProduct/all")
-   public ResponseEntity<List<BuyProduct>> getBuyProducts(){
+   public ResponseEntity<List<BuyProductDTO>> getBuyProducts(){
 
-      List<BuyProduct> BuyProducts = buyProductServices.getAllBuyProducts();
-      return new ResponseEntity<>(BuyProducts, HttpStatus.OK);
+      List<BuyProduct> buyProducts = buyProductServices.getAllBuyProducts();
+      List<BuyProductDTO> buyProductDTOs = buyProductServices.convartToDTO(buyProducts);
+      return new ResponseEntity<>(buyProductDTOs, HttpStatus.OK);
    }
 
    @PostMapping("/buyProduct/add")
-   public ResponseEntity<BuyProduct> addBuyProduct(@RequestBody BuyProduct buyProduct){
+   public ResponseEntity<BuyProductDTO> addBuyProduct(@RequestBody BuyProduct buyProduct){
+      buyProduct.setProduct(productService.getProductById(16));
       BuyProduct saveBuyProduct = buyProductServices.addBuyProduct(buyProduct);
-      return new ResponseEntity<>(saveBuyProduct , HttpStatus.CREATED) ;
+      BuyProductDTO buyProductDTO = buyProductServices.convartToDTO(saveBuyProduct);
+
+      return new ResponseEntity<>(buyProductDTO , HttpStatus.CREATED) ;
    }
 
    @GetMapping("/buyProduct/{id}")
    public ResponseEntity<BuyProduct> getBuyProduct(@PathVariable("id") Integer id){
-
       BuyProduct BuyProduct = buyProductServices.getBuyProductById(id);
-
       return new ResponseEntity<>(BuyProduct , HttpStatus.OK);
    }
 
@@ -51,7 +62,7 @@ public class BuyProductController {
    @PutMapping("/buyProduct/update")
    public ResponseEntity<BuyProduct> updateBuyProduct(@RequestBody BuyProduct BuyProduct){
       BuyProduct saveBuyProduct = buyProductServices.addBuyProduct(BuyProduct);
-      return new ResponseEntity<>(saveBuyProduct , HttpStatus.OK) ;
+      return new ResponseEntity<>(saveBuyProduct , HttpStatus.OK);
    }
 
 
