@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import hu.cs.se.adjva.projectmanagement.filter.JwtFilter;
 import hu.cs.se.adjva.projectmanagement.service.UserDetailsServiceImpl;
@@ -64,23 +62,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-    @Bean
-    public WebMvcConfigurer corseConfigurer(){
-    
-        return new WebMvcConfigurer(){
 
-            @Override
-            public void addCorsMappings(CorsRegistry registery){
-                registery.addMapping("/**")
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*")
-                .allowedOrigins("*");
-            }
-
-            
-        };
      
-    }
+    
 
 
 
