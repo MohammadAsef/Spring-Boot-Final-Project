@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import hu.cs.se.adjva.projectmanagement.DTO.ProductStoreDTO;
 import hu.cs.se.adjva.projectmanagement.model.ProductStore;
+import hu.cs.se.adjva.projectmanagement.service.product.ProdectServices;
 import hu.cs.se.adjva.projectmanagement.service.productStore.ProductStoreServices;
 
 @RestController
@@ -21,19 +23,25 @@ public class ProductStoreController {
    @Autowired
    private ProductStoreServices productStoreServices;
 
+   @Autowired
+   private ProdectServices productServices;
 
    
    @GetMapping("/productStore/all")
-   public ResponseEntity<List<ProductStore>> getProductStores(){
+   public ResponseEntity<List<ProductStoreDTO>> getProductStores(){
 
-      List<ProductStore> ProductStores = productStoreServices.getAllProductStores();
-      return new ResponseEntity<>(ProductStores, HttpStatus.OK);
+      List<ProductStore> productStores = productStoreServices.getAllProductStores();
+      List<ProductStoreDTO> storeDTOs = productStoreServices.convartToDTO(productStores);
+      return new ResponseEntity<>(storeDTOs, HttpStatus.OK);
    }
 
    @PostMapping("/productStore/add")
-   public ResponseEntity<ProductStore> addProductStore(@RequestBody ProductStore productStore){
+   public ResponseEntity<ProductStoreDTO> addProductStore(@RequestBody ProductStore productStore){
+      productStore.setProduct(productServices.getProductById(10));
       ProductStore saveProductStore = productStoreServices.addProductStore(productStore);
-      return new ResponseEntity<>(saveProductStore , HttpStatus.CREATED) ;
+      
+      ProductStoreDTO productStoreDTO = productStoreServices.canvaDTO(saveProductStore);
+      return new ResponseEntity<>(productStoreDTO , HttpStatus.CREATED) ;
    }
 
    @GetMapping("/productStore/{id}")
