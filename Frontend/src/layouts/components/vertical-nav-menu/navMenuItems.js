@@ -11,14 +11,33 @@
 export default [
   {
     url: "/",
-    name: "Home",
+    name: "صفحه اصلی",
     slug: "home",
     icon: "HomeIcon",
   },
   {
-    url: "/page2",
-    name: "Page 2",
-    slug: "page2",
-    icon: "FileIcon",
+    url: "/customer",
+    name: "مشتریان",
+    slug: "customer",
+    icon: "UserIcon",
+      submenu: [
+          {
+              url: '/customer',
+              name: "لیست مشتریان",
+              slug: "customer",
+              i18n: "customer",
+          },
+          {
+              url: '/customer/add',
+              name: "اضافه کردن مشتری",
+              slug: "addCustomer",
+              i18n: "addCustomer",
+          },
+      ]
+  }, {
+    url: "/product",
+    name: "اجناس",
+    slug: "product",
+    icon: "ShoppingCartIcon",
   },
 ]
