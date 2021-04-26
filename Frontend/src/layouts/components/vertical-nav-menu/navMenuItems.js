@@ -34,7 +34,27 @@ export default [
               i18n: "addCustomer",
           },
       ]
-  }, {
+  },
+  {
+    name: "فکتور",
+    slug: "Factor",
+    icon: "UserIcon",
+      submenu: [
+          {
+              url: '/factor',
+              name: "لیست فکتور",
+              slug: "Factor",
+              i18n: "Factor",
+          },
+          {
+              url: '/saleFactor/add',
+              name: "اضافه کردن فکتور",
+              slug: "addFactor",
+              i18n: "addFactor",
+          },
+      ]
+  }
+  , {
     url: "/product",
     name: "اجناس",
     slug: "product",

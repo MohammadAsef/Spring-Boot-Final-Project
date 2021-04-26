@@ -70,6 +70,37 @@ const router = new Router({
                         rule: 'editor'
                     },
                 },
+                
+                {
+                    path: '/factor',
+                    name: 'Factor',
+                    component: () => import('./views/pages/Factors/SaleFactor.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/factor',active:true},
+                            {title:  'اضافیه کردن' ,url: '/saleFactor/add'},
+
+                        ],
+                        pageTitle: 'فکتور ها',
+                        rule: 'editor'
+                    },
+                },
+                {
+                    path: '/saleFactor/add',
+                    name: 'addSaleFactor',
+                    component: () => import('./views/pages/Factors/addFactor.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/factor'},
+                            {title:  'اضافه کردن فکتور' ,url: '/saleFactor/add',active:true},
+
+                        ],
+                        pageTitle: 'فکتور ها',
+                        rule: 'editor'
+                    },
+                },
             ],
         },
         // =============================================================================

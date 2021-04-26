@@ -30,15 +30,12 @@ public class SaleFactor {
     }
 
 
-    public SaleFactor(Integer buyFactorId, Integer factorCode, String saleDate, Integer receptionPrice,
-            Integer discount, Integer totalPrice, Integer status) {
+    public SaleFactor(Integer buyFactorId, Integer factorCode, String saleDate, Integer receptionPrice, Integer totalPrice) {
         this.buyFactorId = buyFactorId;
         this.factorCode = factorCode;
         this.saleDate = saleDate;
         this.receptionPrice = receptionPrice;
-        this.discount = discount;
         this.totalPrice = totalPrice;
-        this.status = status;
     }
 
 

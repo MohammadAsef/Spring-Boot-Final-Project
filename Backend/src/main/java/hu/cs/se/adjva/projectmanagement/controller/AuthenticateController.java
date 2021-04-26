@@ -50,8 +50,6 @@ public class AuthenticateController {
 
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtauth.getUsername(),jwtauth.getPassword()));
-            System.out.println(jwtauth.getPassword());
-            System.out.println(jwtauth.getUsername());
         }catch (BadCredentialsException e){
             throw new BadCredentialsException("error");
         }
