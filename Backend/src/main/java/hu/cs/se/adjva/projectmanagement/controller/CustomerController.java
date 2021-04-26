@@ -1,12 +1,11 @@
 package hu.cs.se.adjva.projectmanagement.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 import hu.cs.se.adjva.projectmanagement.Repository.WalletRepository;
 import hu.cs.se.adjva.projectmanagement.model.Customer;
-import hu.cs.se.adjva.projectmanagement.model.Product;
 import hu.cs.se.adjva.projectmanagement.model.Wallet;
-import hu.cs.se.adjva.projectmanagement.service.CustomerServiceImp;
 import hu.cs.se.adjva.projectmanagement.service.CustomerServices;
-import hu.cs.se.adjva.projectmanagement.service.ProdectServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

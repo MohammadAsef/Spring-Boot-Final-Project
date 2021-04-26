@@ -1,5 +1,4 @@
 <template>
-
     <!-- VERTICAL LAYOUT -->
     <div class="vx-col md:w-1/2 w-full mb-base">
         <vx-card title="ثبت مشتری جدید" code-toggler>
@@ -33,7 +32,6 @@
 </template>
 <script>
 
-
     import CustomerServices from './../../../api/CustomerServices';
 
     export default{
@@ -43,20 +41,16 @@
                 phone: "",
                 address: "",
             }
-        },methods :{
+        },
+        methods :{
             async addCustomer() {
                 var customer = {
                     name: this.name,
                     phone: this.phone,
                     address: this.address,
                 };
-
                 await  CustomerServices.addCustomer(customer)
-
                 this.$router.push({name: 'customer'})
-
-
-
             }
         }
     }

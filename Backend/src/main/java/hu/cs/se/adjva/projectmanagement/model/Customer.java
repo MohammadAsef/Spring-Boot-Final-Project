@@ -8,18 +8,16 @@ import java.util.Set;
 @Table(name = "customer")
 public class Customer {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
+    private int id;
     private String name;
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "customer")
+    private Wallet wallet;
+    
     private Set<BuyFactor> buyFactors;
 
+    @OneToMany(mappedBy = "customer")
     public Set<BuyFactor> getBuyFactors() {
         return buyFactors;
     }
@@ -28,7 +26,9 @@ public class Customer {
         this.buyFactors = buyFactors;
     }
 
-    public Integer getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
         return id;
     }
 
@@ -61,8 +61,6 @@ public class Customer {
     }
 
     @OneToOne(mappedBy = "customer")
-    private Wallet wallet;
-
     public Wallet getWallet() {
         return wallet;
     }

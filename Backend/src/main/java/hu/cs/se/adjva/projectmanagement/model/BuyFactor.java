@@ -1,5 +1,11 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -13,23 +19,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BuyFactor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer buyFactorId;
-    private Integer storeId;
-    private Integer companyId;
     private Integer factorCode;
     private String buyDate;
     private Integer discount;
     private Integer currentPayment;
     private Integer totalPayment;
-    private Integer userId;
     private Integer status;
 
-
-    @ManyToOne
+    private Stock stockId;
     private Customer customer;
 
+    @ManyToOne
     public Customer getCustomer() {
         return customer;
     }
@@ -41,42 +42,36 @@ public class BuyFactor {
     public BuyFactor() {
     }
 
-    public BuyFactor(Integer buyFactorId, Integer storeId, Integer companyId, Integer factorCode, String buyDate,
-            Integer discount, Integer currentPayment, Integer totalPayment, Integer userId, Integer status) {
+    public BuyFactor(Integer buyFactorId, Integer factorCode, String buyDate,
+            Integer discount, Integer currentPayment, Integer totalPayment, Integer status) {
         this.buyFactorId = buyFactorId;
-        this.storeId = storeId;
-        this.companyId = companyId;
         this.factorCode = factorCode;
         this.buyDate = buyDate;
         this.discount = discount;
         this.currentPayment = currentPayment;
         this.totalPayment = totalPayment;
-        this.userId = userId;
         this.status = status;
     }
 
+   
+
+    @OneToOne
+    public Stock getStock() {
+        return stockId;
+    }
+
+    public void setStock(Stock stock) {
+        this.stockId = stock;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getBuyFactorId() {
         return buyFactorId;
     }
 
     public void setBuyFactorId(Integer buyFactorId) {
         this.buyFactorId = buyFactorId;
-    }
-
-    public Integer getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Integer storeId) {
-        this.storeId = storeId;
-    }
-
-    public Integer getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(Integer companyId) {
-        this.companyId = companyId;
     }
 
     public Integer getFactorCode() {
@@ -117,14 +112,6 @@ public class BuyFactor {
 
     public void setTotalPayment(Integer totalPayment) {
         this.totalPayment = totalPayment;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Integer getStatus() {

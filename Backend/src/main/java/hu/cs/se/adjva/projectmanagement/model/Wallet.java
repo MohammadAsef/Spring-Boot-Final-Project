@@ -6,14 +6,10 @@ import javax.persistence.*;
 
 @Table(name = "wallet")
 public class Wallet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private Integer mount;
-
-    @OneToOne
+    
+    private String id;
+    private Integer mount;  
     private Customer customer;
-
 
     public Wallet(Integer mount, Customer customer) {
         this.mount = mount;
@@ -23,6 +19,7 @@ public class Wallet {
     public Wallet() {
     }
 
+    @OneToOne
     public Customer getCustomer() {
         return customer;
     }
@@ -31,12 +28,13 @@ public class Wallet {
         this.customer = customer;
     }
 
-
-    public Integer getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
