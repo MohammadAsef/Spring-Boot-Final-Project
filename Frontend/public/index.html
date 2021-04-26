@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="persian">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
-      body{
-        font-family: "Nunito", sans-serif;
-        color: rgba(#000, 0.7);
-        margin: 0;
-       }
-    </style>
-</head>
-  <body dir="rtl">
-<div id="app"></div>
-    </body>
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>loader.css">
+    <title>سیستم گدام داری مدرن</title>
+  </head>
+  <body style="font-family: Shabnam!important;">
+
+    <div id="loading-bg">
+      <div class="loading-logo">
+        <img src="<%= BASE_URL %>logo.png" alt="Logo">
+      </div>
+      <div class="loading">
+        <div class="effect-1 effects"></div>
+        <div class="effect-2 effects"></div>
+        <div class="effect-3 effects"></div>
+      </div>
+    </div>
+    <div id="app">
+
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>

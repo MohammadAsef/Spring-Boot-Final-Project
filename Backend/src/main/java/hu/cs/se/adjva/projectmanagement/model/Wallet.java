@@ -29,15 +29,15 @@ public class Wallet {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getMount() {
+    public Integer getMount() {
         return mount;
     }
 
-    public void setMount(String mount) {
+    public void setMount(Integer mount) {
         this.mount = mount;
     }
 }
