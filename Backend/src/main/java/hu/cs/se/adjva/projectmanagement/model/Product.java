@@ -6,14 +6,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * Produect
  */
 @Entity
-@Table(name = "Products")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+@Table(name = "Product")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler" })
 public class Product {
 
    
@@ -40,7 +41,7 @@ public class Product {
     }
 
     // mapping with SaleProduct
-    @OneToOne(mappedBy = "product")
+    @OneToOne(mappedBy = "product" )
     public SaleProduct getSaleProduct() {
         return saleProduct;
     }
