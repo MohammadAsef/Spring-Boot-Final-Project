@@ -16,56 +16,82 @@ Vue.use(Router)
 const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
-    scrollBehavior () {
-        return { x: 0, y: 0 }
+    scrollBehavior() {
+        return {x: 0, y: 0}
     },
     routes: [
 
         {
-    // =============================================================================
-    // MAIN LAYOUT ROUTES
-    // =============================================================================
+            // =============================================================================
+            // MAIN LAYOUT ROUTES
+            // =============================================================================
             path: '',
             component: () => import('./layouts/main/Main.vue'),
 
-            meta: { authentication: true },
+            meta: {authentication: true},
             children: [
-        // =============================================================================
-        // Theme Routes
-        // =============================================================================
-              {
-                path: '/',
-                name: 'home',
-                component: () => import('./views/Home.vue'),
+                // =============================================================================
+                // Theme Routes
+                // =============================================================================
+                {
+                    path: '/',
+                    name: 'home',
+                    component: () => import('./views/Home.vue'),
 
-              },
-              {
-                path: '/page2',
-                name: 'page-2',
-                component: () => import('./views/Page2.vue')
-              },
+                },
+
+                {
+                    path: '/customer',
+                    name: 'customer',
+                    component: () => import('./views/pages/Customer/customer.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/customer',active:true},
+                            {title:  'اضافیه کردن' ,url: '/customer/add'},
+
+                        ],
+                        pageTitle: 'مشتریان',
+                        rule: 'editor'
+                    },
+                },
+                {
+                    path: '/customer/add',
+                    name: 'addCustomer',
+                    component: () => import('./views/pages/Customer/AddCustomer.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/customer'},
+                            {title:  'اضافیه کردن' ,url: '/customer/add',active:true},
+
+                        ],
+                        pageTitle: 'مشتریان',
+                        rule: 'editor'
+                    },
+                },
             ],
         },
-    // =============================================================================
-    // FULL PAGE LAYOUTS
-    // =============================================================================
+        // =============================================================================
+        // FULL PAGE LAYOUTS
+        // =============================================================================
         {
             path: '',
             component: () => import('@/layouts/full-page/FullPage.vue'),
             children: [
-        // =============================================================================
-        // PAGES
-        // =============================================================================
-              {
-                path: '/login',
-                name: 'page-login',
-                component: () => import('@/views/pages/Login.vue')
-              },
-              {
-                path: '/error-404',
-                name: 'page-error-404',
-                component: () => import('@/views/pages/Error404.vue')
-              },
+                // =============================================================================
+                // PAGES
+                // =============================================================================
+                {
+                    path: '/login',
+                    name: 'page-login',
+                    component: () => import('@/views/pages/Login.vue')
+                },
+                {
+                    path: '/error-404',
+                    name: 'page-error-404',
+                    component: () => import('@/views/pages/Error404.vue')
+                },
             ]
         },
         // Redirect to 404 page, if no match found
@@ -77,8 +103,8 @@ const router = new Router({
 })
 
 router.afterEach(() => {
-  // Remove initial loading
-  const appLoading = document.getElementById('loading-bg')
+    // Remove initial loading
+    const appLoading = document.getElementById('loading-bg')
     if (appLoading) {
         appLoading.style.display = "none";
     }

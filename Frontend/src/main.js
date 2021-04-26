@@ -85,8 +85,13 @@ new Vue({
     store,
     created() {
         const userData = localStorage.getItem("user");
+
+        console.log("userData",userData)
         if (userData) {
             this.$store.commit("SET_USER", JSON.parse(userData));
+
+
+
         }
 
 

@@ -60,6 +60,9 @@ const actions = {
     },
     async login({ commit }, user) {
         const response = await UserService.login(user);
+
+        console.log(response);
+        // if(response.
         commit("SET_USER", response.data);
     },
 

@@ -24,18 +24,18 @@
               <div class="p-8 login-tabs-container">
 
                 <div class="vx-card__title mb-4">
-                  <h4 class="mb-4">Login</h4>
-                  <p>Welcome back, please login to your account.</p>
+                  <h4 class="mb-4">وارد شدن</h4>
+                  <p>دوباره خوش امدید.</p>
                 </div>
 
                 <div>
                   <vs-input
-                      name="email"
+                      name="username"
                       icon-no-border
                       icon="icon icon-user"
                       icon-pack="feather"
-                      label-placeholder="Email"
-                      v-model="email"
+                      label-placeholder="نام کاربری"
+                      v-model="username"
                       class="w-full"/>
 
                   <vs-input
@@ -44,18 +44,18 @@
                       icon-no-border
                       icon="icon icon-lock"
                       icon-pack="feather"
-                      label-placeholder="Password"
+                      label-placeholder="رمز عبور"
                       v-model="password"
                       class="w-full mt-6" />
 
                   <div class="flex flex-wrap justify-between my-5">
-                      <vs-checkbox v-model="checkbox_remember_me" class="mb-3">Remember Me</vs-checkbox>
-                      <router-link to="">Forgot Password?</router-link>
+                      <vs-checkbox v-model="checkbox_remember_me" class="mb-3">مرا بخاطر بسپار</vs-checkbox>
+                      <router-link to="">فراموشی رمز عبور?</router-link>
                   </div>
-                  <vs-button  type="border">Register</vs-button>
-                  <vs-button class="float-right">Login</vs-button>
+                  <!--<vs-button  type="border">ثت</vs-button>-->
+                  <vs-button class="float-right" @click="login">وارد شدن</vs-button>
 
-                  <vs-divider>OR</vs-divider>
+                  <vs-divider>یا</vs-divider>
 
                   <div class="social-login-buttons flex flex-wrap items-center mt-4">
 
@@ -94,11 +94,21 @@
 export default{
   data() {
     return {
-      email: "",
+      username: "",
       password: "",
       checkbox_remember_me: false,
     }
-  }
+  },methods :{
+        async login() {
+            const user = {
+                username: this.username,
+                password: this.password
+            };
+
+            await this.$store.dispatch("login", user);
+            this.$router.push("/");
+        }
+    }
 }
 </script>
 

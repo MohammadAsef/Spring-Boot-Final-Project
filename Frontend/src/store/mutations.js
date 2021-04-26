@@ -7,6 +7,7 @@
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
+import UserService from './../api/UserService'
 
 const mutations = {
 
