@@ -15,6 +15,10 @@ public class Customer {
     private String email;
     private String phone;
 
+
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
