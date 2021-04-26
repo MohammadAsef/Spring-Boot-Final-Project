@@ -21,7 +21,7 @@ import hu.cs.se.adjva.projectmanagement.service.ProdectServices;
  * ProductContoller
  */
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProductContoller {
 
 

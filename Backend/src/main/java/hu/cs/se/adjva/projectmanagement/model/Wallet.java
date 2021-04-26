@@ -8,11 +8,16 @@ import javax.persistence.*;
 public class Wallet {
     
     private String id;
-    private String mount;
-
-
-  
+    private Integer mount;  
     private Customer customer;
+
+    public Wallet(Integer mount, Customer customer) {
+        this.mount = mount;
+        this.customer = customer;
+    }
+
+    public Wallet() {
+    }
 
     @OneToOne
     public Customer getCustomer() {
@@ -33,11 +38,11 @@ public class Wallet {
         this.id = id;
     }
 
-    public String getMount() {
+    public Integer getMount() {
         return mount;
     }
 
-    public void setMount(String mount) {
+    public void setMount(Integer mount) {
         this.mount = mount;
     }
 }
