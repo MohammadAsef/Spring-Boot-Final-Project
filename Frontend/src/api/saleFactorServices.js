@@ -6,7 +6,7 @@ export default {
   },
 
   getAllSaleFactors() {
-    return axiosClient.get("/customer/all");
+    return axiosClient.get("/saleFactor/all");
   },
 
   deleteById(saleFactorId) {
@@ -14,10 +14,10 @@ export default {
   },
 
   getById(saleFactorId) {
-    return axiosClient.get(`/customer/${saleFactorId}`);
+    return axiosClient.get(`/saleFactor/${saleFactorId}`);
   },
 
-  updateCustomer(saleFactor) {
+  updateSaleFactor(saleFactor) {
     return axiosClient.put("/saleFactor/update", saleFactor);
   }
 };

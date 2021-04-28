@@ -10,7 +10,7 @@ export default {
   },
 
   deleteById(stock) {
-    return axiosClient.delete(`/saleFactor/${stock}/delete`);
+    return axiosClient.delete(`/stock/${stock}/delete`);
   },
 
   getById(stockID) {

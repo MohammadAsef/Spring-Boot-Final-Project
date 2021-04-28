@@ -17,10 +17,10 @@ export default {
     return axiosClient.get(`/buyFactor/${buyFactor}`);
   },
 
-  updateCustomer(buyFactor) {
+  updateBuyFactor(buyFactor) {
     return axiosClient.put("/buyFactor/update", buyFactor);
     },
-   DeleteStock(buyFactorId) {
+   DeleteBuyFactor(buyFactorId) {
     return axiosClient.get(`/buyFactor/${buyFactorId}/delete`);
   }
 };
