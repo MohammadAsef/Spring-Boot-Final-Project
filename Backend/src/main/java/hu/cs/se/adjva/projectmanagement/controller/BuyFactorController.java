@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import hu.cs.se.adjva.projectmanagement.dto.BuyFactorDTO;
 import hu.cs.se.adjva.projectmanagement.model.BuyFactor;
 import hu.cs.se.adjva.projectmanagement.service.buyFactor.BuyFactorServices;
 
@@ -24,10 +26,11 @@ public class BuyFactorController {
     private BuyFactorServices buyFactorServices;
 
     @GetMapping("/buyFactor/all")
-    public ResponseEntity<List<BuyFactor>> getBuyFactors() {
+    public ResponseEntity<List<BuyFactorDTO>> getBuyFactors() {
 
         List<BuyFactor> buyFactors = buyFactorServices.getAllBuyFactor();
-        return new ResponseEntity<>(buyFactors, HttpStatus.OK);
+        List<BuyFactorDTO> buyFactorDTOs = buyFactorServices.convertToDTO(buyFactors);
+        return new ResponseEntity<>(buyFactorDTOs, HttpStatus.OK);
     }
 
     @PostMapping("/buyFactor/add")
@@ -37,11 +40,13 @@ public class BuyFactorController {
     }
 
     @GetMapping("/buyFactor/{id}")
-    public ResponseEntity<BuyFactor> getBuyFactor(@PathVariable("id") Integer id) {
+    public ResponseEntity<BuyFactorDTO> getBuyFactor(@PathVariable("id") Integer id) {
 
         BuyFactor buyFactor = buyFactorServices.getBuyFactorById(id);
 
-        return new ResponseEntity<>(buyFactor, HttpStatus.OK);
+        BuyFactorDTO buyFactorDTO = buyFactorServices.convertToDTO(buyFactor);
+
+        return new ResponseEntity<>(buyFactorDTO, HttpStatus.OK);
     }
 
     @PutMapping("/buyFactor/update")

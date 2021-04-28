@@ -2,6 +2,14 @@
     <div class="vx-col md:w-1/2 w-full mb-base">
         <vx-card title="ثبت فکتور فروش جدید" code-toggler>
             <div>
+                <v-label>انتخاب فروشنده</v-label>
+            </div>
+            <div class="vx-row mb-6">
+                <div class="vx-col w-full">
+                    <vs-select :options="customers" label="مشتری تان را انتخاب کنید" v-model="customerId"></vs-select>
+                </div>
+            </div>
+            <div>
                 <v-label>انتخاب گدام</v-label>
             </div>
             <div class="vx-row mb-6">
@@ -35,6 +43,7 @@
 <script>
 
     import BuyFactorServices from './../../../api/buyFactorServices';
+    import CustomerServices from "./../../../api/CustomerServices";
     import StockServices from './../../../api/stockServices';
     import { VsSelect } from 'vs-select';
 
@@ -45,10 +54,12 @@
         data() {
             return {
                 options: [],
+                customers: [],
                 currentPayment: "",
                 buyDate: "",
                 totalPayment: "",
                 stock : null,
+                customerId: null,
             }
         },
         async mounted() {
@@ -59,15 +70,27 @@
                     value: `${element.stockId}`,
                 });
             });
+            const cust = await CustomerServices.getAllCustomers();
+            cust.data.forEach(element => {
+                console.log(element);
+                this.customers.push({
+                    label: element.name,
+                    value: `${element.id}`
+                });
+            });
         },
         methods :{
             async addBuyFactor() {
                 var myStock = await  StockServices.getById(this.stock);
+                var customer = await CustomerServices.getById(this.customerId);
                 var buyFactor = {
                     currentPayment: this.currentPayment,
                     buyDate: this.buyDate,
                     totalPayment: this.totalPayment,
                     stock: myStock.data,
+                    discount: 0,
+                    status: 0,
+                    customer: customer.data,
                 };
                 await  BuyFactorServices.addBuyFactor(buyFactor)
                 this.$router.push({name: 'BuyFactor'})

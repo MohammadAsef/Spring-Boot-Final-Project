@@ -101,8 +101,8 @@ export default{
   },methods :{
         async login() {
             const user = {
-                username: this.usernamet,
-                password: this.password
+                username: this.username,
+                password: this.password,
             };
 
             await this.$store.dispatch("login", user);

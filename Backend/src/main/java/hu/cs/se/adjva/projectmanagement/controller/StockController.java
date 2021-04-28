@@ -23,7 +23,7 @@ import hu.cs.se.adjva.projectmanagement.service.stock.StockServices;
 public class StockController {
     
 
-    @Autowired
+   @Autowired
    private StockServices stockServices;
 
 

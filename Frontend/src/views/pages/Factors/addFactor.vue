@@ -6,7 +6,7 @@
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-select :options="customers" label="مشتری تان را انتخاب کنید" v-model="stock"></vs-select>
+                    <vs-select :options="customers" label="مشتری تان را انتخاب کنید" v-model="customerId"></vs-select>
                 </div>
             </div>
             <div>
@@ -14,7 +14,7 @@
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-select :options="options" label="گدام تان را انتخاب کنید" v-model="customer"></vs-select>
+                    <vs-select :options="options" label="گدام تان را انتخاب کنید" v-model="stock"></vs-select>
                 </div>
             </div>
             <div class="vx-row mb-6">
@@ -59,7 +59,7 @@
                 saleDate: "",
                 totalPrice: "",
                 stock : null,
-                customer: null,
+                customerId: null,
             }
         },
         async mounted() {
@@ -82,7 +82,7 @@
         methods :{
             async addSaleFactor() {
                 var myStock = await  StockServices.getById(this.stock);
-                var customer = await CustomerServices.getById(this.customer);
+                var customer = await CustomerServices.getById(this.customerId);
                 console.log(customer);
                 var saleFactor = {
                     receptionPrice: this.receptionPrice,

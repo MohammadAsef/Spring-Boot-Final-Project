@@ -1,12 +1,15 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -28,6 +31,17 @@ public class BuyFactor {
     private Integer status;
 
     private Stock stockId;
+    private Set<Product> products;
+    private Customer customer;
+
+    @ManyToOne
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public BuyFactor() {
     }
@@ -108,5 +122,14 @@ public class BuyFactor {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @OneToMany(mappedBy = "buyFactor")
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }

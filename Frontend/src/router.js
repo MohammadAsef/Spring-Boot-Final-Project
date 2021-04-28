@@ -48,7 +48,7 @@ const router = new Router({
                         breadcrumb: [
                             {title: 'Home', url: '/'},
                             {title: 'لیست', url: '/customer',active:true},
-                            {title:  'اضافیه کردن' ,url: '/customer/add'},
+                            {title:  'اضافه کردن' ,url: '/customer/add'},
 
                         ],
                         pageTitle: 'مشتریان',
@@ -63,7 +63,7 @@ const router = new Router({
                         breadcrumb: [
                             {title: 'Home', url: '/'},
                             {title: 'لیست', url: '/customer'},
-                            {title:  'اضافیه کردن' ,url: '/customer/add',active:true},
+                            {title:  'اضافه کردن' ,url: '/customer/add',active:true},
 
                         ],
                         pageTitle: 'مشتریان',
@@ -82,7 +82,7 @@ const router = new Router({
                             {title:  'اضافه کردن' ,url: '/saleFactor/add'},
 
                         ],
-                        pageTitle: 'فکتور ها',
+                        pageTitle: 'فکتور های فروش',
                         rule: 'editor'
                     },
                 },
@@ -97,7 +97,7 @@ const router = new Router({
                             {title:  'اضافه کردن فکتور' ,url: '/saleFactor/add',active:true},
 
                         ],
-                        pageTitle: 'فکتور ها',
+                        pageTitle: 'فکتور های فروش',
                         rule: 'editor'
                     },
                 },
@@ -113,7 +113,7 @@ const router = new Router({
                             {title:  'اضافه کردن' ,url: '/saleFactor/add'},
 
                         ],
-                        pageTitle: 'فکتور ها',
+                        pageTitle: 'فکتور های خرید',
                         rule: 'editor'
                     },
                 },
@@ -128,7 +128,7 @@ const router = new Router({
                             {title:  'اضافه کردن فکتور' ,url: '/buyFactor/add',active:true},
 
                         ],
-                        pageTitle: 'فکتور ها',
+                        pageTitle: 'فکتور های خرید',
                         rule: 'editor'
                     },
                 },

@@ -26,8 +26,8 @@
                     <vs-td :data="data[indextr].totalPayment">
                         {{data[indextr].totalPayment}}
                     </vs-td>
-                    <vs-td :data="data[indextr].stock.stockName">
-                        {{data[indextr].stock.stockName}}
+                    <vs-td :data="data[indextr].stockId.stockName">
+                        {{data[indextr].stockId.stockName}}
                     </vs-td>
                 </vs-tr>
             </template>

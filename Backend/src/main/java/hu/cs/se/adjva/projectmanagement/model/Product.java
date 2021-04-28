@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -16,8 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String product_name;
     private Integer product_code;
@@ -25,6 +24,17 @@ public class Product {
     private Double price;
     private Double product_buy_price;
     private Double product_sale_price;
+
+    private BuyFactor buyFactor;
+
+    @ManyToOne
+    public BuyFactor getBuyFactor() {
+        return buyFactor;
+    }
+
+    public void setBuyFactor(BuyFactor buyFactor) {
+        this.buyFactor = buyFactor;
+    }
 
     public Product(){
 
@@ -43,6 +53,8 @@ public class Product {
                 
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }

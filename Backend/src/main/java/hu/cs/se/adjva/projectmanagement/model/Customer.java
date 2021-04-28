@@ -1,5 +1,7 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,16 @@ public class Customer {
     private String phone;
 
     private Wallet wallet;
+    private Set<BuyFactor> buyFactors;
+
+    @OneToMany(mappedBy = "customer")
+    public Set<BuyFactor> getBuyFactors() {
+        return buyFactors;
+    }
+
+    public void setBuyFactors(Set<BuyFactor> buyFactors) {
+        this.buyFactors = buyFactors;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

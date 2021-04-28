@@ -3,6 +3,7 @@ package hu.cs.se.adjva.projectmanagement.controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import hu.cs.se.adjva.projectmanagement.Repository.WalletRepository;
+import hu.cs.se.adjva.projectmanagement.dto.CustomerDTO;
 import hu.cs.se.adjva.projectmanagement.model.Customer;
 import hu.cs.se.adjva.projectmanagement.model.Wallet;
 import hu.cs.se.adjva.projectmanagement.service.CustomerServices;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // for testing
@@ -26,10 +28,19 @@ public class CustomerController {
     private WalletRepository walletRepository;
 
     @GetMapping("/customer/all")
-    public ResponseEntity<List<Customer>> getCustomers(){
+    public ResponseEntity<List<CustomerDTO>> getCustomers(){
 
         List<Customer> customers = customerServices.getAllCustomers();
-        return new ResponseEntity(customers, HttpStatus.OK);
+        List<CustomerDTO> customerDTOList = new ArrayList<>();
+        for(Customer customer: customers){
+            CustomerDTO customerDTO = new CustomerDTO();
+            customerDTO.setId(customer.getId());
+            customerDTO.setEmail(customer.getEmail());
+            customerDTO.setName(customer.getName());
+            customerDTO.setPhone(customer.getPhone());
+            customerDTOList.add(customerDTO);
+        }
+        return new ResponseEntity(customerDTOList, HttpStatus.OK);
     }
 
 
@@ -48,11 +59,15 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{id}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable("id") Integer id){
+    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable("id") Integer id){
 
         Customer customer = customerServices.getCustomerById(id);
-
-        return new ResponseEntity<>(customer , HttpStatus.OK);
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setEmail(customer.getEmail());
+        customerDTO.setId(customer.getId());
+        customerDTO.setName(customer.getName());
+        customerDTO.setPhone(customer.getPhone());
+        return new ResponseEntity<>(customerDTO , HttpStatus.OK);
     }
 
 
