@@ -94,14 +94,14 @@
 export default{
   data() {
     return {
-      username: "",
-      password: "",
+      username: "a",
+      password: "a",
       checkbox_remember_me: false,
     }
   },methods :{
         async login() {
             const user = {
-                username: this.username,
+                username: this.usernamet,
                 password: this.password
             };
 
