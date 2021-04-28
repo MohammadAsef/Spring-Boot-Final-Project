@@ -1,17 +1,27 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
 import javax.persistence.*;
+
 @Entity
+
 @Table(name = "wallet")
 public class Wallet {
-  
-    private String id;
-    private String mount;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private Integer mount;
 
-
-   @OneToOne
+    @OneToOne
     private Customer customer;
 
+
+    public Wallet(Integer mount, Customer customer) {
+        this.mount = mount;
+        this.customer = customer;
+    }
+
+    public Wallet() {
+    }
 
     public Customer getCustomer() {
         return customer;
@@ -21,21 +31,20 @@ public class Wallet {
         this.customer = customer;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public String getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getMount() {
+    public Integer getMount() {
         return mount;
     }
 
-    public void setMount(String mount) {
+    public void setMount(Integer mount) {
         this.mount = mount;
     }
 }

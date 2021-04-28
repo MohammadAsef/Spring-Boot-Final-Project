@@ -87,6 +87,12 @@ const router = new Router({
                     },
                 },
                 {
+                    path: '/report',
+                    name: 'Report',
+                    component: () => import('./views/pages/Report.vue'),
+                   
+                },
+                {
                     path: '/saleFactor/add',
                     name: 'addSaleFactor',
                     component: () => import('./views/pages/Factors/addFactor.vue'),

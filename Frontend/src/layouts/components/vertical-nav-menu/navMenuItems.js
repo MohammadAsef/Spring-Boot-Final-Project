@@ -60,4 +60,10 @@ export default [
     slug: "product",
     icon: "ShoppingCartIcon",
   },
+  {
+    url: "/report",
+    name: "گزارش",
+    slug: "report",
+    icon: "ShoppingCartIcon",
+  },
 ]

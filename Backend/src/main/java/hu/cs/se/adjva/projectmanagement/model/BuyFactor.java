@@ -1,10 +1,6 @@
 package hu.cs.se.adjva.projectmanagement.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -17,7 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BuyFactor {
 
-   
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer buyFactorId;
     private Integer storeId;
     private Integer companyId;
@@ -28,6 +25,18 @@ public class BuyFactor {
     private Integer totalPayment;
     private Integer userId;
     private Integer status;
+
+
+    @ManyToOne
+    private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public BuyFactor() {
     }
@@ -46,8 +55,6 @@ public class BuyFactor {
         this.status = status;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getBuyFactorId() {
         return buyFactorId;
     }
