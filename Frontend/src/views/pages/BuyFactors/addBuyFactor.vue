@@ -13,7 +13,7 @@
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" type="date" label="تاریخ فروش" v-model="saleDate" />
+                    <vs-input class="w-full" type="date" label="تاریخ فروش" v-model="buyDate" />
                 </div>
             </div>
             <div class="vx-row mb-6">
@@ -23,7 +23,7 @@
             </div>
             <div class="vx-row">
                 <div class="vx-col w-full">
-                    <vs-button class="mr-3 mb-2" @click="addSaleFactor">ارسال</vs-button>
+                    <vs-button class="mr-3 mb-2" @click="addBuyFactor">ارسال</vs-button>
                 </div>
             </div>
         </vx-card>
@@ -31,7 +31,7 @@
 </template>
 <script>
 
-    import SaleFactorServices from '../../../api/saleFactorServices';
+    import BuyFactorServices from '../../../api/buyFactorService';
 
     export default{
         data() {
@@ -39,19 +39,19 @@
                 dialog: false,
                 factorCode: "",
                 receptionPrice: "",
-                saleDate: "",
+                buyDate: "",
                 totalPrice: "",
             }
         },
         methods :{
-            async addSaleFactor() {
-                var saleFactor = {
+            async addBuyFactor() {
+                var BuyFactor = {
                     factorCode: this.factorCode,
                     receptionPrice: this.receptionPrice,
-                    saleDate: this.saleDate,
+                    buyDate: this.buyDate,
                     totalPrice: this.totalPrice,
                 };
-                await  SaleFactorServices.addSaleFactor(saleFactor)
+                await  BuyFactorServices.addBuyFactor(BuyFactor)
                 this.$router.push({name: 'Factor'})
             }
         }

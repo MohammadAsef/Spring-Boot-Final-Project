@@ -2,7 +2,7 @@
     <vx-card title="فاکتور های فروش" code-toggler>
         <br><br>
 
-        <vs-table :data="saleFactors">
+        <vs-table :data="buyFactors">
 
             <template slot="thead">
                 <vs-th>شماره فاکتور</vs-th>
@@ -19,8 +19,8 @@
                     <vs-td :data="data[indextr].receptionPrice">
                         {{data[indextr].receptionPrice}}
                     </vs-td>
-                    <vs-td :data="data[indextr].saleDate">
-                        {{data[indextr].saleDate}}
+                    <vs-td :data="data[indextr].buyDate">
+                        {{data[indextr].buyDate}}
                     </vs-td>
                     <vs-td :data="data[indextr].totalPrice">
                         {{data[indextr].totalPrice}}
@@ -31,18 +31,18 @@
     </vx-card>
 </template>
 <script>
-    import SaleFactorServices from "../../../api/saleFactorServices";
+    import buyFactorServices from "../../../api/buyFactorService";
 
     export default {
         data() {
             return {
-                saleFactors: []
+                buyFactors: []
             };
         },
         methods: {},
         async mounted() {
-            const response = await SaleFactorServices.getAllSaleFactors();
-            this.saleFactors = response.data;
+            const response = await buyFactorServices.getAllBuyFactors();
+            this.buyFactors = response.data;
         }
     };
 </script>
