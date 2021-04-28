@@ -53,8 +53,28 @@ export default [
               i18n: "addFactor",
           },
       ]
-  }
-  , {
+  },
+  {
+    url: "/stock",
+    name: "Stock",
+    slug: "stock",
+    icon: "BoxIcon",
+     submenu: [
+          {
+              url: '/Stock',
+              name: "لیست انبار",
+              slug: "Stock",
+              i18n: "Stock",
+          },
+          {
+              url: '/addStock/add',
+              name: "اضافه کردن انبار",
+              slug: "addStock",
+              i18n: "addStock",
+          },
+      ]
+  },
+  {
     url: "/product",
     name: "اجناس",
     slug: "product",
@@ -66,10 +86,5 @@ export default [
     slug: "report",
     icon: "BarChart2Icon",
   },
-  {
-    url: "/stock",
-    name: "Stock",
-    slug: "stock",
-    icon: "BoxIcon",
-  },
+  
 ]
