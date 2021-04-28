@@ -2,7 +2,7 @@
     <vx-card title="فاکتور های فروش" code-toggler>
         <br><br>
 
-        <vs-table :data="saleFactors">
+        <vs-table :data="buyFactors">
 
             <template slot="thead">
                 <vs-th>شماره فاکتور</vs-th>
@@ -13,18 +13,18 @@
             </template>
 
             <template slot-scope="{data}">
-                <vs-tr :key="indextr" v-for="(tr, indextr) in saleFactors">
+                <vs-tr :key="indextr" v-for="(tr, indextr) in buyFactors">
                     <vs-td :data="data[indextr].factorCode">
                         {{data[indextr].factorCode}}
                     </vs-td>
-                    <vs-td :data="data[indextr].receptionPrice">
-                        {{data[indextr].receptionPrice}}
+                    <vs-td :data="data[indextr].currentPayment">
+                        {{data[indextr].currentPayment}}
                     </vs-td>
-                    <vs-td :data="data[indextr].saleDate">
-                        {{data[indextr].saleDate}}
+                    <vs-td :data="data[indextr].buyDate">
+                        {{data[indextr].buyDate}}
                     </vs-td>
-                    <vs-td :data="data[indextr].totalPrice">
-                        {{data[indextr].totalPrice}}
+                    <vs-td :data="data[indextr].totalPayment">
+                        {{data[indextr].totalPayment}}
                     </vs-td>
                     <vs-td :data="data[indextr].stock.stockName">
                         {{data[indextr].stock.stockName}}
@@ -35,18 +35,18 @@
     </vx-card>
 </template>
 <script>
-    import SaleFactorServices from "./../../../api/saleFactorServices";
+    import BuyFactorServices from "./../../../api/buyFactorServices";
 
     export default {
         data() {
             return {
-                saleFactors: []
+                buyFactors: []
             };
         },
         methods: {},
         async mounted() {
-            const response = await SaleFactorServices.getAllSaleFactors();
-            this.saleFactors = response.data;
+            const response = await BuyFactorServices.getAllBuyFactors();
+            this.buyFactors = response.data;
             console.log(response.data);
         }
     };

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class SaleFactor {
     
     private Integer buyFactorId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer factorCode;
     private String saleDate;
     private Integer receptionPrice;
@@ -30,12 +31,13 @@ public class SaleFactor {
     }
 
 
-    public SaleFactor(Integer buyFactorId, Integer factorCode, String saleDate, Integer receptionPrice, Integer totalPrice) {
+    public SaleFactor(Integer buyFactorId, Integer factorCode, String saleDate, Integer receptionPrice, Integer totalPrice, Customer customer) {
         this.buyFactorId = buyFactorId;
         this.factorCode = factorCode;
         this.saleDate = saleDate;
         this.receptionPrice = receptionPrice;
         this.totalPrice = totalPrice;
+        this.customer = customer;
     }
 
 
@@ -50,14 +52,13 @@ public class SaleFactor {
         this.buyFactorId = buyFactorId;
     }
 
-
     public Integer getFactorCode() {
         return factorCode;
     }
 
 
     public void setFactorCode(Integer factorCode) {
-        this.factorCode = factorCode;
+        this.factorCode = this.buyFactorId;
     }
 
 

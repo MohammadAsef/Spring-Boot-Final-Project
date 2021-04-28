@@ -32,7 +32,8 @@ public class SaleFactorController {
     }
 
     @PostMapping("/saleFactor/add")
-    public ResponseEntity<SaleFactor> addSaleFactor(@RequestBody SaleFactor saleFactor) {
+    public ResponseEntity<SaleFactor> addSaleFactor(@RequestBody SaleFactor saleFactor){
+
         SaleFactor saveSaleFactor = saleFactorServices.addSaleFactor(saleFactor);
         return new ResponseEntity<>(saveSaleFactor, HttpStatus.CREATED);
     }

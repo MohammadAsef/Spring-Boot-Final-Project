@@ -36,21 +36,40 @@ export default [
       ]
   },
   {
-    name: "فکتور",
+    name: "فکتور فروش",
     slug: "Factor",
-    icon: "UserIcon",
+    icon: "FolderIcon",
       submenu: [
           {
               url: '/factor',
-              name: "لیست فکتور",
+              name: "لیست فکتور فروش",
               slug: "Factor",
               i18n: "Factor",
           },
           {
               url: '/saleFactor/add',
-              name: "اضافه کردن فکتور",
+              name: "اضافه کردن فکتور فروش",
               slug: "addFactor",
               i18n: "addFactor",
+          },
+      ]
+  },
+  {
+    name: "فکتور خرید",
+    slug: "BuyFactor",
+    icon: "FolderIcon",
+      submenu: [
+          {
+              url: '/buyfactor',
+              name: "لیست فکتور خرید",
+              slug: "BuyFactor",
+              i18n: "BuyFactor",
+          },
+          {
+              url: '/buyFactor/add',
+              name: "اضافه کردن فکتور خرید",
+              slug: "addBuyFactor",
+              i18n: "addBuyFactor",
           },
       ]
   }

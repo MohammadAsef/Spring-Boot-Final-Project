@@ -24,14 +24,14 @@
 
             <template slot-scope="{data}">
                 <vs-tr :key="indextr" v-for="(tr, indextr) in customers">
+                    <vs-td :data="data[indextr].name">
+                        {{data[indextr].name}}
+                    </vs-td>
                     <vs-td :data="data[indextr].email">
                         {{data[indextr].email}}
                     </vs-td>
-                    <vs-td :data="data[indextr].username">
-                        {{data[indextr].name}}
-                    </vs-td>
-                    <vs-td :data="data[indextr].id">
-                        {{data[indextr].website}}
+                    <vs-td :data="data[indextr].phone">
+                        {{data[indextr].phone}}
                     </vs-td>
                     <vs-td :data="data[indextr].id">
                         {{data[indextr].id}}

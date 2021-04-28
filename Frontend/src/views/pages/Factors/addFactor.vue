@@ -1,9 +1,20 @@
 <template>
     <div class="vx-col md:w-1/2 w-full mb-base">
-        <vx-card title="ثبت فکتور جدید" code-toggler>
+        <vx-card title="ثبت فکتور فروش جدید" code-toggler>
+            <div>
+                <v-label>انتخاب مشتری</v-label>
+            </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" label="شماره فکتور" v-model="factorCode" />
+                    <vs-select :options="customers" label="مشتری تان را انتخاب کنید" v-model="stock"></vs-select>
+                </div>
+            </div>
+            <div>
+                <v-label>انتخاب گدام</v-label>
+            </div>
+            <div class="vx-row mb-6">
+                <div class="vx-col w-full">
+                    <vs-select :options="options" label="گدام تان را انتخاب کنید" v-model="customer"></vs-select>
                 </div>
             </div>
             <div class="vx-row mb-6">
@@ -32,24 +43,53 @@
 <script>
 
     import SaleFactorServices from './../../../api/saleFactorServices';
+    import CustomerServices from "./../../../api/CustomerServices";
+    import StockServices from './../../../api/stockServices';
+    import { VsSelect } from 'vs-select';
 
     export default{
+        components: {
+            VsSelect,
+        },
         data() {
             return {
-                dialog: false,
-                factorCode: "",
+                options: [],
+                customers: [],
                 receptionPrice: "",
                 saleDate: "",
                 totalPrice: "",
+                stock : null,
+                customer: null,
             }
+        },
+        async mounted() {
+            const response = await  StockServices.getAllStocks();
+            response.data.forEach(element => {
+                this.options.push({
+                    label: element.stockName,
+                    value: `${element.stockId}`,
+                });
+            });
+            const cust = await CustomerServices.getAllCustomers();
+            cust.data.forEach(element => {
+                console.log(element);
+                this.customers.push({
+                    label: element.name,
+                    value: `${element.id}`
+                });
+            });
         },
         methods :{
             async addSaleFactor() {
+                var myStock = await  StockServices.getById(this.stock);
+                var customer = await CustomerServices.getById(this.customer);
+                console.log(customer);
                 var saleFactor = {
-                    factorCode: this.factorCode,
                     receptionPrice: this.receptionPrice,
                     saleDate: this.saleDate,
                     totalPrice: this.totalPrice,
+                    stock: myStock.data,
+                    customer: customer.data
                 };
                 await  SaleFactorServices.addSaleFactor(saleFactor)
                 this.$router.push({name: 'Factor'})

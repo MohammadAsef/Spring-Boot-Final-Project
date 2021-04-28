@@ -28,16 +28,6 @@ public class BuyFactor {
     private Integer status;
 
     private Stock stockId;
-    private Customer customer;
-
-    @ManyToOne
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     public BuyFactor() {
     }
@@ -52,8 +42,6 @@ public class BuyFactor {
         this.totalPayment = totalPayment;
         this.status = status;
     }
-
-   
 
     @OneToOne
     public Stock getStock() {
@@ -79,7 +67,7 @@ public class BuyFactor {
     }
 
     public void setFactorCode(Integer factorCode) {
-        this.factorCode = factorCode;
+        this.factorCode = this.buyFactorId;
     }
 
     public String getBuyDate() {

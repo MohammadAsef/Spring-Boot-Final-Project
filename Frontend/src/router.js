@@ -79,7 +79,7 @@ const router = new Router({
                         breadcrumb: [
                             {title: 'Home', url: '/'},
                             {title: 'لیست', url: '/factor',active:true},
-                            {title:  'اضافیه کردن' ,url: '/saleFactor/add'},
+                            {title:  'اضافه کردن' ,url: '/saleFactor/add'},
 
                         ],
                         pageTitle: 'فکتور ها',
@@ -95,6 +95,37 @@ const router = new Router({
                             {title: 'Home', url: '/'},
                             {title: 'لیست', url: '/factor'},
                             {title:  'اضافه کردن فکتور' ,url: '/saleFactor/add',active:true},
+
+                        ],
+                        pageTitle: 'فکتور ها',
+                        rule: 'editor'
+                    },
+                },
+
+                {
+                    path: '/buyfactor',
+                    name: 'BuyFactor',
+                    component: () => import('./views/pages/BuyFactors/BuyFactors.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/buyfactor',active:true},
+                            {title:  'اضافه کردن' ,url: '/saleFactor/add'},
+
+                        ],
+                        pageTitle: 'فکتور ها',
+                        rule: 'editor'
+                    },
+                },
+                {
+                    path: '/buyFactor/add',
+                    name: 'addBuyFactor',
+                    component: () => import('./views/pages/BuyFactors/addBuyFactor.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/buyfactor'},
+                            {title:  'اضافه کردن فکتور' ,url: '/buyFactor/add',active:true},
 
                         ],
                         pageTitle: 'فکتور ها',
