@@ -6,7 +6,7 @@ export default {
   },
 
   getAllSaleFactors() {
-    return axiosClient.get("/saleFactor/all");
+    return axiosClient.get("/customer/all");
   },
 
   deleteById(saleFactorId) {

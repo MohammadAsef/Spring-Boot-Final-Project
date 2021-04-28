@@ -12,7 +12,7 @@
             </template>
 
             <template slot-scope="{data}">
-                <vs-tr :key="indextr" v-for="(tr, indextr) in saleFactors">
+                <vs-tr :key="indextr"  >
                     <vs-td :data="data[indextr].factorCode">
                         {{data[indextr].factorCode}}
                     </vs-td>

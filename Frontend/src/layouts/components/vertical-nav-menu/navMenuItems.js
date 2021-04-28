@@ -64,6 +64,12 @@ export default [
     url: "/report",
     name: "گزارش",
     slug: "report",
-    icon: "ShoppingCartIcon",
+    icon: "BarChart2Icon",
+  },
+  {
+    url: "/stock",
+    name: "Stock",
+    slug: "stock",
+    icon: "BoxIcon",
   },
 ]

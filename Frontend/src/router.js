@@ -92,8 +92,13 @@ const router = new Router({
                     component: () => import('./views/pages/Report.vue'),
                    
                 },
-                {
-                    path: '/saleFactor/add',
+                 {
+                    path: '/stock',
+                    name: 'Stock',
+                    component: () => import('./views/pages/Stock.vue'),
+                   
+                },
+                {path: '/saleFactor/add',
                     name: 'addSaleFactor',
                     component: () => import('./views/pages/Factors/addFactor.vue'),
                     meta: {
