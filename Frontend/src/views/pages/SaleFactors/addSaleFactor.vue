@@ -1,24 +1,24 @@
 <template>
     <div class="vx-col md:w-1/2 w-full mb-base">
-        <vx-card title="ثبت انبار جدید" >
+        <vx-card title="ثبت فکتور جدید" code-toggler>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" label="stockId" v-model="factorCode" />
+                    <vs-input class="w-full" label="شماره فکتور" v-model="factorCode" />
                 </div>
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" type="number" label="Status" v-model="receptionPrice" />
+                    <vs-input class="w-full" type="number" label="قیمت پرداختی" v-model="receptionPrice" />
                 </div>
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" type="number" label="stock Address" v-model="totalPrice" />
+                    <vs-input class="w-full" type="date" label="تاریخ فروش" v-model="saleDate" />
                 </div>
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" type="number" label="stock name" v-model="totalPrice" />
+                    <vs-input class="w-full" type="number" label="قیمت مجموع" v-model="totalPrice" />
                 </div>
             </div>
             <div class="vx-row">
@@ -31,7 +31,7 @@
 </template>
 <script>
 
-    import Stock from './../../../api/StockService';
+    import SaleFactorServices from '../../../api/saleFactorServices';
 
     export default{
         data() {
@@ -44,15 +44,15 @@
             }
         },
         methods :{
-            async addStock() {
-                var stock= {
+            async addSaleFactor() {
+                var saleFactor = {
                     factorCode: this.factorCode,
                     receptionPrice: this.receptionPrice,
                     saleDate: this.saleDate,
                     totalPrice: this.totalPrice,
                 };
-                await  Stock.addStock(stock)
-                this.$router.push({name: 'stock'})
+                await  SaleFactorServices.addSaleFactor(saleFactor)
+                this.$router.push({name: 'Factor'})
             }
         }
     }

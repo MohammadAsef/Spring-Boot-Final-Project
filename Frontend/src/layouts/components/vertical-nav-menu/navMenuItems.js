@@ -38,7 +38,7 @@ export default [
   {
     name: "فکتور",
     slug: "Factor",
-    icon: "UserIcon",
+    icon: "ClipboardIcon",
       submenu: [
           {
               url: '/factor',

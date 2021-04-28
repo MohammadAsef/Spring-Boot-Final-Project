@@ -74,7 +74,7 @@ const router = new Router({
                 {
                     path: '/factor',
                     name: 'Factor',
-                    component: () => import('./views/pages/Factors/SaleFactor.vue'),
+                    component: () => import('./views/pages/SaleFactors/SaleFactor.vue'),
                     meta: {
                         breadcrumb: [
                             {title: 'Home', url: '/'},
@@ -88,7 +88,7 @@ const router = new Router({
                 },
                 {path: '/saleFactor/add',
                     name: 'addSaleFactor',
-                    component: () => import('./views/pages/Factors/addFactor.vue'),
+                    component: () => import('./views/pages/SaleFactors/addSaleFactor.vue'),
                     meta: {
                         breadcrumb: [
                             {title: 'Home', url: '/'},

@@ -31,7 +31,7 @@
 </template>
 <script>
 
-    import SaleFactorServices from './../../../api/saleFactorServices';
+    import SaleFactorServices from '../../../api/saleFactorServices';
 
     export default{
         data() {
