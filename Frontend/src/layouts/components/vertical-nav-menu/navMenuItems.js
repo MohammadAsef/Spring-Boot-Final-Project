@@ -36,19 +36,29 @@ export default [
       ]
   },
   {
-    name: "فکتور",
+    name: "فکتور ها",
     slug: "Factor",
     icon: "ClipboardIcon",
       submenu: [
           {
-              url: '/factor',
-              name: "لیست فکتور",
+              url: '/buyfactor',
+              name: "لیست فکتور خرید",
               slug: "Factor",
               i18n: "Factor",
           },
           {
+              url: '/buyFactor/add',
+              name: "اضافه کردن فکتور خرید",
+              slug: "addFactor",
+              i18n: "addFactor",
+          }, {
+              url: '/salefactor',
+              name: "لیست فکتور فروش",
+              slug: "saleFactor",
+              i18n: "Factor",
+          }, {
               url: '/saleFactor/add',
-              name: "اضافه کردن فکتور",
+              name: "اضافه کردن فکتور فروش",
               slug: "addFactor",
               i18n: "addFactor",
           },
