@@ -51,9 +51,9 @@ public class CustomerController {
 
         Customer saveCustomer = customerServices.addCustomer(customer);
 
-        Wallet wallet = walletRepository.save(new Wallet(0,saveCustomer));
+        // Wallet wallet = walletRepository.save(new Wallet(0,saveCustomer));
 
-        saveCustomer.setWallet(wallet);
+        // saveCustomer.setWallet(wallet);
 
         return new ResponseEntity(saveCustomer , HttpStatus.CREATED) ;
     }

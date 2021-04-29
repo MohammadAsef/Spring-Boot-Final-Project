@@ -24,8 +24,8 @@ public class CustomerServiceImp implements CustomerServices {
     }
 
     @Override
-    public Customer addCustomer(Customer prodect) {
-        return customerRepository.save(prodect);
+    public Customer addCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 
     @Override

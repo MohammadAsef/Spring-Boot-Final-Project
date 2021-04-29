@@ -44,7 +44,7 @@
 
     import SaleFactorServices from './../../../api/saleFactorServices';
     import CustomerServices from "./../../../api/CustomerServices";
-    import StockServices from './../../../api/stockServices';
+    import StockServices from './../../../api/StockService';
     import { VsSelect } from 'vs-select';
 
     export default{

@@ -71,10 +71,4 @@ public class ProductContoller {
       return new ResponseEntity<>("The "+id+" Deleted",HttpStatus.OK);
 
    }
-
-
-
-
-
-
 }

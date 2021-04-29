@@ -9,12 +9,12 @@
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" type="phone" label="شماره تماس" v-model="input10" />
+                    <vs-input class="w-full" type="phone" label="شماره تماس" v-model="phone" />
                 </div>
             </div>
             <div class="vx-row mb-6">
                 <div class="vx-col w-full">
-                    <vs-input class="w-full" label="آدرس" v-model="address" />
+                    <vs-input class="w-full" label="ایمیل آدرس" v-model="email" />
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
             return {
                 name: "",
                 phone: "",
-                address: "",
+                email: "",
             }
         },
         methods :{
@@ -47,7 +47,7 @@
                 var customer = {
                     name: this.name,
                     phone: this.phone,
-                    address: this.address,
+                    email: this.email,
                 };
                 await  CustomerServices.addCustomer(customer)
                 this.$router.push({name: 'customer'})

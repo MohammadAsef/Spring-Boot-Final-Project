@@ -110,7 +110,7 @@ const router = new Router({
                         breadcrumb: [
                             {title: 'Home', url: '/'},
                             {title: 'لیست', url: '/buyfactor',active:true},
-                            {title:  'اضافه کردن' ,url: '/saleFactor/add'},
+                            {title:  'اضافه کردن' ,url: '/buyFactor/add'},
 
                         ],
                         pageTitle: 'فکتور های خرید',
@@ -132,6 +132,39 @@ const router = new Router({
                         rule: 'editor'
                     },
                 },
+                {
+                    path: "/report",
+                    name: "Report",
+                    component: () => import("./views/pages/Report.vue")
+                },
+                {
+                    path: "/stock",
+                    name: "Stock",
+                    component: () => import("./views/pages/Stock/Stock.vue"),
+                    meta: {
+                        breadcrumb: [
+                            { title: "Home", url: "/" },
+                            { title: "لیست", url: "/Stock", active: true },
+                            { title: "اضافه کردن", url: "/addStock/add" }
+                        ],
+                        pageTitle: "گدام",
+                        rule: "editor"
+                    }
+                },
+                {
+                    path: "/addStock/add",
+                    name: "addStock",
+                    component: () => import("./views/pages/Stock/addStock.vue"),
+                    meta: {
+                        breadcrumb: [
+                            { title: "Home", url: "/" },
+                            { title: "لیست", url: "/Stock"},
+                            { title: "اضافه کردن", url: "/addStock/add", active: true}
+                        ],
+                        pageTitle: "گدام",
+                        rule: "editor"
+                    }
+                }
             ],
         },
         // =============================================================================

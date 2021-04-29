@@ -1,6 +1,6 @@
 <template>
     <div class="vx-col md:w-1/2 w-full mb-base">
-        <vx-card title="ثبت فکتور فروش جدید" code-toggler>
+        <vx-card title="ثبت فکتور خرید جدید" code-toggler>
             <div>
                 <v-label>انتخاب فروشنده</v-label>
             </div>
@@ -44,7 +44,7 @@
 
     import BuyFactorServices from './../../../api/buyFactorServices';
     import CustomerServices from "./../../../api/CustomerServices";
-    import StockServices from './../../../api/stockServices';
+    import StockServices from './../../../api/StockService';
     import { VsSelect } from 'vs-select';
 
     export default{

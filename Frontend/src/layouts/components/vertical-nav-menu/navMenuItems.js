@@ -72,11 +72,31 @@ export default [
               i18n: "addBuyFactor",
           },
       ]
-  }
-  , {
-    url: "/product",
-    name: "اجناس",
-    slug: "product",
-    icon: "ShoppingCartIcon",
+  },
+  {
+    url: "/stock",
+    name: "Stock",
+    slug: "stock",
+    icon: "BoxIcon",
+      submenu: [
+          {
+              url: '/Stock',
+              name: "لیست گدام ها",
+              slug: "Stock",
+              i18n: "Stock",
+          },
+          {
+              url: '/addStock/add',
+              name: "اضافه کردن گدام",
+              slug: "addStock",
+              i18n: "addStock",
+          },
+      ]
+  },
+  {
+      url: "/product",
+      name: "اجناس",
+      slug: "product",
+      icon: "ShoppingCartIcon",
   },
 ]

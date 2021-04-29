@@ -1,5 +1,5 @@
 <template>
-    <vx-card title="فاکتور های فروش" code-toggler>
+    <vx-card title="فاکتور های خرید" code-toggler>
         <br><br>
 
         <vs-table :data="buyFactors">
