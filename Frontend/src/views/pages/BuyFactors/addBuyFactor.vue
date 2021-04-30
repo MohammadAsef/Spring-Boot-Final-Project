@@ -63,7 +63,7 @@
             }
         },
         async mounted() {
-            const response = await  StockServices.getAllStocks();
+            const response = await  StockServices.getAllStock();
             response.data.forEach(element => {
                 this.options.push({
                     label: element.stockName,

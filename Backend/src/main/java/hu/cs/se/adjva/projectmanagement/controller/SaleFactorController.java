@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import hu.cs.se.adjva.projectmanagement.dto.SaleFactorDTO;
 import hu.cs.se.adjva.projectmanagement.model.SaleFactor;
 import hu.cs.se.adjva.projectmanagement.service.saleFactor.SaleFactorServices;
 
@@ -25,17 +26,19 @@ public class SaleFactorController {
     private SaleFactorServices saleFactorServices;
 
     @GetMapping("/saleFactor/all")
-    public ResponseEntity<List<SaleFactor>> getSaleFactors() {
+    public ResponseEntity<List<SaleFactorDTO>> getSaleFactors() {
 
         List<SaleFactor> saleFactors = saleFactorServices.getAllSaleFactor();
-        return new ResponseEntity<>(saleFactors, HttpStatus.OK);
+        List<SaleFactorDTO> saleFactorDTOs = saleFactorServices.convertToDTO(saleFactors);
+        return new ResponseEntity<>(saleFactorDTOs, HttpStatus.OK);
     }
 
     @PostMapping("/saleFactor/add")
-    public ResponseEntity<SaleFactor> addSaleFactor(@RequestBody SaleFactor saleFactor){
+    public ResponseEntity<SaleFactorDTO> addSaleFactor(@RequestBody SaleFactor saleFactor){
 
         SaleFactor saveSaleFactor = saleFactorServices.addSaleFactor(saleFactor);
-        return new ResponseEntity<>(saveSaleFactor, HttpStatus.CREATED);
+        SaleFactorDTO saleFactorDTO = saleFactorServices.convertToDTO(saveSaleFactor);
+        return new ResponseEntity<>(saleFactorDTO, HttpStatus.CREATED);
     }
 
     @GetMapping("/saleFactor/{id}")

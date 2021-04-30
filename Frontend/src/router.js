@@ -164,7 +164,37 @@ const router = new Router({
                         pageTitle: "گدام",
                         rule: "editor"
                     }
-                }
+                },
+                {
+                    path: '/product',
+                    name: 'product',
+                    component: () => import('./views/pages/products/product.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/product'},
+                            {title:  'اضافه کردن' ,url: '/addProduct/add', active:true},
+
+                        ],
+                        pageTitle: 'محصولات',
+                        rule: 'editor'
+                    },
+                },
+                {
+                    path: '/addProduct/add',
+                    name: 'addProduct',
+                    component: () => import('./views/pages/products/addProduct.vue'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/'},
+                            {title: 'لیست', url: '/product'},
+                            {title:  'اضافه کردن' ,url: '/addProduct/add', active:true},
+
+                        ],
+                        pageTitle: 'محصولات',
+                        rule: 'editor'
+                    },
+                },
             ],
         },
         // =============================================================================

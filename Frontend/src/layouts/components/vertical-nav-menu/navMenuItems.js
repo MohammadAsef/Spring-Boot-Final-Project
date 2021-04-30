@@ -75,7 +75,7 @@ export default [
   },
   {
     url: "/stock",
-    name: "Stock",
+    name: "گدام",
     slug: "stock",
     icon: "BoxIcon",
       submenu: [
@@ -95,8 +95,22 @@ export default [
   },
   {
       url: "/product",
-      name: "اجناس",
+      name: "محصولات",
       slug: "product",
       icon: "ShoppingCartIcon",
+      submenu: [
+        {
+            url: '/product',
+            name: "لیست محصولات",
+            slug: "Product",
+            i18n: "Product",
+        },
+        {
+            url: '/addProduct/add',
+            name: "اضافه کردن محصول",
+            slug: "addProduct",
+            i18n: "addProduct",
+        },
+    ]
   },
 ]

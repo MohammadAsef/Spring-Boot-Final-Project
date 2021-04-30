@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import hu.cs.se.adjva.projectmanagement.dto.BuyFactorDTO;
+
 /**
  * Produect
  */
@@ -41,7 +43,7 @@ public class Product {
     }
 
     public Product(Integer id, String product_name, Integer product_code, String product_description, Double price,
-            Double product_buy_price, Double product_sale_price) {
+            Double product_buy_price, Double product_sale_price, BuyFactor buyFactor) {
 
                 this.id = id;
                 this.product_name = product_name;
@@ -50,6 +52,7 @@ public class Product {
                 this.price = price;
                 this.product_buy_price = product_buy_price;
                 this.product_sale_price = product_sale_price;
+                this.buyFactor = buyFactor;
                 
     }
 
